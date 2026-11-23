@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,9 +9,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum GetVariableStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case UnknownComponent = 'UnknownComponent';
-	case UnknownVariable = 'UnknownVariable';
-	case NotSupportedAttributeType = 'NotSupportedAttributeType';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case UnknownComponent = 'UnknownComponent';
+    case UnknownVariable = 'UnknownVariable';
+    case NotSupportedAttributeType = 'NotSupportedAttributeType';
 }

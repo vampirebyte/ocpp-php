@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ChargingProfileKind: string
 {
-	case Absolute = 'Absolute';
-	case Recurring = 'Recurring';
-	case Relative = 'Relative';
-	case Dynamic = 'Dynamic';
+    case Absolute = 'Absolute';
+    case Recurring = 'Recurring';
+    case Relative = 'Relative';
+    case Dynamic = 'Dynamic';
 }

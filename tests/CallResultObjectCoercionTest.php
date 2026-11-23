@@ -3,10 +3,12 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
+use SolutionForest\OcppPhp\Ocpp\v16\CallResults\Authorize;
 use SolutionForest\OcppPhp\Ocpp\v16\CallResults\GetCompositeSchedule;
 use SolutionForest\OcppPhp\Ocpp\v16\CallResults\StartTransaction;
 use SolutionForest\OcppPhp\Ocpp\v16\CallResults\StopTransaction;
-use SolutionForest\OcppPhp\Ocpp\v16\CallResults\Authorize;
+use SolutionForest\OcppPhp\Ocpp\v16\Datatypes\ChargingSchedule;
+use SolutionForest\OcppPhp\Ocpp\v16\Datatypes\ChargingSchedulePeriod;
 use SolutionForest\OcppPhp\Ocpp\v201\CallResults\BootNotification as BootNotificationResult;
 use SolutionForest\OcppPhp\Ocpp\v201\Calls\BootNotification as BootNotificationCall;
 
@@ -42,7 +44,7 @@ final class CallResultObjectCoercionTest extends TestCase
         $this->assertSame('2026-05-23T09:35:35Z', $result->scheduleStart);
 
         // The key assertion: chargingSchedule is hydrated into its typed Datatype
-        $this->assertInstanceOf(\SolutionForest\OcppPhp\Ocpp\v16\Datatypes\ChargingSchedule::class, $result->chargingSchedule);
+        $this->assertInstanceOf(ChargingSchedule::class, $result->chargingSchedule);
 
         // Nested properties should be accessible as object properties
         $this->assertSame(7200, $result->chargingSchedule->duration);
@@ -51,7 +53,7 @@ final class CallResultObjectCoercionTest extends TestCase
         // Nested lists are hydrated too, at every depth
         $this->assertCount(1, $result->chargingSchedule->chargingSchedulePeriod);
         $period = $result->chargingSchedule->chargingSchedulePeriod[0];
-        $this->assertInstanceOf(\SolutionForest\OcppPhp\Ocpp\v16\Datatypes\ChargingSchedulePeriod::class, $period);
+        $this->assertInstanceOf(ChargingSchedulePeriod::class, $period);
         $this->assertSame(0, $period->startPeriod);
         $this->assertSame(-1.0, $period->limit);
         $this->assertSame(-1, $period->numberPhases);
@@ -70,7 +72,6 @@ final class CallResultObjectCoercionTest extends TestCase
 
         $result = new StartTransaction('test-id', $payload);
 
-        $this->assertIsObject($result->idTagInfo);
         $this->assertSame('Accepted', $result->idTagInfo->status);
         $this->assertSame(42, $result->transactionId);
     }
@@ -98,7 +99,6 @@ final class CallResultObjectCoercionTest extends TestCase
 
         $result = new Authorize('test-id', $payload);
 
-        $this->assertIsObject($result->idTagInfo);
         $this->assertSame('Accepted', $result->idTagInfo->status);
     }
 
@@ -171,7 +171,6 @@ final class CallResultObjectCoercionTest extends TestCase
 
         // toArray should work without errors
         $array = $result->toArray();
-        $this->assertIsArray($array);
         $this->assertSame(3, $array[0]);
         $this->assertSame('4202995311', $array[1]);
     }
@@ -188,7 +187,6 @@ final class CallResultObjectCoercionTest extends TestCase
 
         $call = new BootNotificationCall($payload);
 
-        $this->assertIsObject($call->chargingStation);
         $this->assertSame('TestModel', $call->chargingStation->model);
         $this->assertSame('TestVendor', $call->chargingStation->vendorName);
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum TariffCost: string
 {
-	case NormalCost = 'NormalCost';
-	case MinCost = 'MinCost';
-	case MaxCost = 'MaxCost';
+    case NormalCost = 'NormalCost';
+    case MinCost = 'MinCost';
+    case MaxCost = 'MaxCost';
 }

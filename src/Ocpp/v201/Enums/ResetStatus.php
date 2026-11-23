@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ResetStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case Scheduled = 'Scheduled';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case Scheduled = 'Scheduled';
 }

@@ -2,3 +2,6 @@
 .phpunit.cache/
 *.py
 *copy.php
+
+# Rector and PHPStan caches (rector.php, phpstan.neon)
+/tmp/

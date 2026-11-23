@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum VPN: string
 {
-	case IKEv2 = 'IKEv2';
-	case IPSec = 'IPSec';
-	case L2TP = 'L2TP';
-	case PPTP = 'PPTP';
+    case IKEv2 = 'IKEv2';
+    case IPSec = 'IPSec';
+    case L2TP = 'L2TP';
+    case PPTP = 'PPTP';
 }

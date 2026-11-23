@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,12 +9,12 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum Data: string
 {
-	case string = 'string';
-	case decimal = 'decimal';
-	case integer = 'integer';
-	case dateTime = 'dateTime';
-	case boolean = 'boolean';
-	case OptionList = 'OptionList';
-	case SequenceList = 'SequenceList';
-	case MemberList = 'MemberList';
+    case string = 'string';
+    case decimal = 'decimal';
+    case integer = 'integer';
+    case dateTime = 'dateTime';
+    case boolean = 'boolean';
+    case OptionList = 'OptionList';
+    case SequenceList = 'SequenceList';
+    case MemberList = 'MemberList';
 }

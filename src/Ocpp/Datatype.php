@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp;
+
+use JsonSerializable;
 
 /**
  * Base class of the generated Datatypes (nested objects of OCPP messages).
@@ -9,10 +13,13 @@ namespace SolutionForest\OcppPhp\Ocpp;
  * Serializes to its set properties only: unset optional properties (null) are omitted,
  * since no OCPP schema allows null.
  */
-abstract class Datatype implements \JsonSerializable
+abstract class Datatype implements JsonSerializable
 {
     use HydratesProperties;
 
+    /**
+     * @param  array<mixed>|null  $data  Decoded JSON (json_decode(..., true)) or named values.
+     */
     public function __construct(?array $data = null)
     {
         $this->fill($data);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\Exceptions;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\CallError;
@@ -10,6 +12,7 @@ use SolutionForest\OcppPhp\Ocpp\Messages\CallError;
  */
 class FormatViolationError extends CallError
 {
-    public string $errorCode = "FormatViolation";
-    public string $errorDescription = "Payload for Action is syntactically incorrect or \" \" structure for Action";
+    public string $errorCode = 'FormatViolation';
+
+    public string $errorDescription = 'Payload for Action is syntactically incorrect or " " structure for Action';
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,15 +9,15 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum GridEventFault: string
 {
-	case CurrentImbalance = 'CurrentImbalance';
-	case LocalEmergency = 'LocalEmergency';
-	case LowInputPower = 'LowInputPower';
-	case OverCurrent = 'OverCurrent';
-	case OverFrequency = 'OverFrequency';
-	case OverVoltage = 'OverVoltage';
-	case PhaseRotation = 'PhaseRotation';
-	case RemoteEmergency = 'RemoteEmergency';
-	case UnderFrequency = 'UnderFrequency';
-	case UnderVoltage = 'UnderVoltage';
-	case VoltageImbalance = 'VoltageImbalance';
+    case CurrentImbalance = 'CurrentImbalance';
+    case LocalEmergency = 'LocalEmergency';
+    case LowInputPower = 'LowInputPower';
+    case OverCurrent = 'OverCurrent';
+    case OverFrequency = 'OverFrequency';
+    case OverVoltage = 'OverVoltage';
+    case PhaseRotation = 'PhaseRotation';
+    case RemoteEmergency = 'RemoteEmergency';
+    case UnderFrequency = 'UnderFrequency';
+    case UnderVoltage = 'UnderVoltage';
+    case VoltageImbalance = 'VoltageImbalance';
 }

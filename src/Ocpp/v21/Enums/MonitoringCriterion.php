@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum MonitoringCriterion: string
 {
-	case ThresholdMonitoring = 'ThresholdMonitoring';
-	case DeltaMonitoring = 'DeltaMonitoring';
-	case PeriodicMonitoring = 'PeriodicMonitoring';
+    case ThresholdMonitoring = 'ThresholdMonitoring';
+    case DeltaMonitoring = 'DeltaMonitoring';
+    case PeriodicMonitoring = 'PeriodicMonitoring';
 }

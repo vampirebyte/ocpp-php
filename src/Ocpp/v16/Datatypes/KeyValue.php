@@ -1,12 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Datatypes;
 
 use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class KeyValue extends Datatype
 {
-	public string $key;
-	public bool $readonly;
-	public ?string $value = null;
+    public string $key;
+
+    public bool $readonly;
+
+    public ?string $value = null;
 }

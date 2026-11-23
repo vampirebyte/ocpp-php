@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum MonitoringBase: string
 {
-	case All = 'All';
-	case FactoryDefault = 'FactoryDefault';
-	case HardWiredOnly = 'HardWiredOnly';
+    case All = 'All';
+    case FactoryDefault = 'FactoryDefault';
+    case HardWiredOnly = 'HardWiredOnly';
 }

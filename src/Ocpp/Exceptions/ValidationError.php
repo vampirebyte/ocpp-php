@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\Exceptions;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\CallError;
@@ -9,6 +11,4 @@ use SolutionForest\OcppPhp\Ocpp\Messages\CallError;
  *
  * Note this isn't an official OCPP error!
  */
-class ValidationError extends CallError
-{
-}
+class ValidationError extends CallError {}

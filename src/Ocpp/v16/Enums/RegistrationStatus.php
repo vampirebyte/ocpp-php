@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum RegistrationStatus: string
 {
-	case Accepted = 'Accepted';
-	case Pending = 'Pending';
-	case Rejected = 'Rejected';
+    case Accepted = 'Accepted';
+    case Pending = 'Pending';
+    case Rejected = 'Rejected';
 }

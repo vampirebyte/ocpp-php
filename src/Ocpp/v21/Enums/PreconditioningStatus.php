@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum PreconditioningStatus: string
 {
-	case Unknown = 'Unknown';
-	case Ready = 'Ready';
-	case NotReady = 'NotReady';
-	case Preconditioning = 'Preconditioning';
+    case Unknown = 'Unknown';
+    case Ready = 'Ready';
+    case NotReady = 'NotReady';
+    case Preconditioning = 'Preconditioning';
 }

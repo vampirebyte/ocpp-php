@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\Attributes;
 
 use Attribute;
+use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 /**
  * Marks an array property as a list of Datatype objects, so decoded JSON arrays
@@ -12,9 +15,7 @@ use Attribute;
 final class ListOf
 {
     /**
-     * @param class-string<\SolutionForest\OcppPhp\Ocpp\Datatype> $class
+     * @param  class-string<Datatype>  $class
      */
-    public function __construct(public string $class)
-    {
-    }
+    public function __construct(public string $class) {}
 }

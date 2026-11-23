@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Datatypes;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -7,9 +9,11 @@ use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class MeterValue extends Datatype
 {
-	public string $timestamp;
+    public string $timestamp;
 
-	/** @var list<SampledValue> */
-	#[ListOf(SampledValue::class)]
-	public array $sampledValue;
+    /**
+     * @var list<SampledValue>
+     */
+    #[ListOf(SampledValue::class)]
+    public array $sampledValue;
 }

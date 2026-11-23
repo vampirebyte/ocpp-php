@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,9 +9,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum TariffSetStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case TooManyElements = 'TooManyElements';
-	case ConditionNotSupported = 'ConditionNotSupported';
-	case DuplicateTariffId = 'DuplicateTariffId';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case TooManyElements = 'TooManyElements';
+    case ConditionNotSupported = 'ConditionNotSupported';
+    case DuplicateTariffId = 'DuplicateTariffId';
 }

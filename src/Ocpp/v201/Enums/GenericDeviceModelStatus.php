@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum GenericDeviceModelStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case NotSupported = 'NotSupported';
-	case EmptyResultSet = 'EmptyResultSet';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case NotSupported = 'NotSupported';
+    case EmptyResultSet = 'EmptyResultSet';
 }

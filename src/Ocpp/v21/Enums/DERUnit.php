@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,10 +9,10 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum DERUnit: string
 {
-	case NotApplicable = 'Not_Applicable';
-	case PctMaxW = 'PctMaxW';
-	case PctMaxVar = 'PctMaxVar';
-	case PctWAvail = 'PctWAvail';
-	case PctVarAvail = 'PctVarAvail';
-	case PctEffectiveV = 'PctEffectiveV';
+    case NotApplicable = 'Not_Applicable';
+    case PctMaxW = 'PctMaxW';
+    case PctMaxVar = 'PctMaxVar';
+    case PctWAvail = 'PctWAvail';
+    case PctVarAvail = 'PctVarAvail';
+    case PctEffectiveV = 'PctEffectiveV';
 }

@@ -14,12 +14,19 @@
         }
     ],
     "require": {
-        "ramsey/uuid": "^4.7",
-        "justinrainbow/json-schema": "^6.0"
+        "php": "^8.4",
+        "justinrainbow/json-schema": "^6.1",
+        "ramsey/uuid": "^4.7"
     },
     "require-dev": {
+        "laravel/pint": "^1.32",
         "nette/php-generator": "^4.1",
-        "phpunit/phpunit": "^11"
+        "pestphp/pest": "^5.3",
+        "pestphp/pest-plugin-type-coverage": "^5.1",
+        "phpstan/phpstan": "^2.3",
+        "phrity/websocket": "^4.1",
+        "react/socket": "^1.17",
+        "rector/rector": "^2.8"
     },
     "suggest": {
         "react/socket": "Required for running WebSocket examples",
@@ -27,5 +34,50 @@
     },
     "bin": [
         "bin/ocpp-php"
-    ]
+    ],
+    "scripts": {
+        "generate": [
+            "@php src/Scripts/RunSchemaProcessor.php all v16",
+            "@php src/Scripts/RunSchemaProcessor.php all v201",
+            "@php src/Scripts/RunSchemaProcessor.php all v21",
+            "pint --parallel src/Ocpp/v16 src/Ocpp/v201 src/Ocpp/v21"
+        ],
+        "lint": [
+            "rector",
+            "pint --parallel"
+        ],
+        "test:lint": [
+            "pint --parallel --test",
+            "rector --dry-run"
+        ],
+        "test:types": "phpstan",
+        "test:type-coverage": "pest --type-coverage --min=100",
+        "test:unit": "XDEBUG_MODE=\"coverage\" pest --parallel --coverage --exactly=100.0",
+        "test": [
+            "@test:lint",
+            "@test:types",
+            "@test:type-coverage",
+            "@test:unit"
+        ]
+    },
+    "scripts-descriptions": {
+        "generate": "Regenerate the Calls, CallResults, Datatypes, Enums and Interfaces of every OCPP version from the JSON schemas.",
+        "lint": "Apply Rector and Pint.",
+        "test:lint": "Check that Rector and Pint have nothing to change.",
+        "test:types": "Run PHPStan at level max.",
+        "test:type-coverage": "Require 100% type coverage.",
+        "test:unit": "Run the test suite with code coverage (needs Xdebug).",
+        "test": "Run every check."
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "policy": {
+            "cooldown": {
+                "period": "7 days"
+            }
+        }
+    }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\Messages;
 
 use SolutionForest\OcppPhp\Ocpp\HydratesProperties;
@@ -19,9 +21,7 @@ abstract class Message
         $payload = (array) $this;
         // Optional properties default to null; no OCPP schema allows null, so
         // null means "absent" and is left out of the payload.
-        $payload = array_filter($payload, function ($value, $key) {
-            return !in_array($key, ['messageTypeID', 'uniqueId']) && $value !== null;
-        }, ARRAY_FILTER_USE_BOTH);
+        $payload = array_filter($payload, fn (mixed $value, int|string $key): bool => ! in_array($key, ['messageTypeID', 'uniqueId'], true) && $value !== null, ARRAY_FILTER_USE_BOTH);
 
         return (object) $payload;
     }

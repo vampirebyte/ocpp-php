@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum DiagnosticsStatus: string
 {
-	case Idle = 'Idle';
-	case Uploaded = 'Uploaded';
-	case UploadFailed = 'UploadFailed';
-	case Uploading = 'Uploading';
+    case Idle = 'Idle';
+    case Uploaded = 'Uploaded';
+    case UploadFailed = 'UploadFailed';
+    case Uploading = 'Uploading';
 }

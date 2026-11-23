@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ChargingProfilePurpose: string
 {
-	case ChargingStationExternalConstraints = 'ChargingStationExternalConstraints';
-	case ChargingStationMaxProfile = 'ChargingStationMaxProfile';
-	case TxDefaultProfile = 'TxDefaultProfile';
-	case TxProfile = 'TxProfile';
+    case ChargingStationExternalConstraints = 'ChargingStationExternalConstraints';
+    case ChargingStationMaxProfile = 'ChargingStationMaxProfile';
+    case TxDefaultProfile = 'TxDefaultProfile';
+    case TxProfile = 'TxProfile';
 }

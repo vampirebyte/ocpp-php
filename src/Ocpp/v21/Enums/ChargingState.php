@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,9 +9,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ChargingState: string
 {
-	case EVConnected = 'EVConnected';
-	case Charging = 'Charging';
-	case SuspendedEV = 'SuspendedEV';
-	case SuspendedEVSE = 'SuspendedEVSE';
-	case Idle = 'Idle';
+    case EVConnected = 'EVConnected';
+    case Charging = 'Charging';
+    case SuspendedEV = 'SuspendedEV';
+    case SuspendedEVSE = 'SuspendedEVSE';
+    case Idle = 'Idle';
 }

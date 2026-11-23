@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Datatypes;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -7,57 +9,63 @@ use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class TariffType extends Datatype
 {
-	/**
-	 * Unique id of tariff
-	 */
-	public string $tariffId;
+    /**
+     * Unique id of tariff
+     */
+    public string $tariffId;
 
-	/** @var list<MessageContentType>|null */
-	#[ListOf(MessageContentType::class)]
-	public ?array $description = null;
+    /**
+     * @var list<MessageContentType>|null
+     */
+    #[ListOf(MessageContentType::class)]
+    public ?array $description = null;
 
-	/**
-	 * Currency code according to ISO 4217
-	 */
-	public string $currency;
+    /**
+     * Currency code according to ISO 4217
+     */
+    public string $currency;
 
-	/**
-	 * Price elements and tax for energy
-	 */
-	public ?TariffEnergyType $energy = null;
+    /**
+     * Price elements and tax for energy
+     */
+    public ?TariffEnergyType $energy = null;
 
-	/**
-	 * Time when this tariff becomes active. When absent, it is immediately active.
-	 */
-	public ?string $validFrom = null;
+    /**
+     * Time when this tariff becomes active. When absent, it is immediately active.
+     */
+    public ?string $validFrom = null;
 
-	/**
-	 * Price elements and tax for time
-	 */
-	public ?TariffTimeType $chargingTime = null;
+    /**
+     * Price elements and tax for time
+     */
+    public ?TariffTimeType $chargingTime = null;
 
-	/**
-	 * Price elements and tax for time
-	 */
-	public ?TariffTimeType $idleTime = null;
-	public ?TariffFixedType $fixedFee = null;
+    /**
+     * Price elements and tax for time
+     */
+    public ?TariffTimeType $idleTime = null;
 
-	/**
-	 * Price elements and tax for time
-	 */
-	public ?TariffTimeType $reservationTime = null;
-	public ?TariffFixedType $reservationFixed = null;
+    public ?TariffFixedType $fixedFee = null;
 
-	/**
-	 * Price with and without tax. At least one of _exclTax_, _inclTax_ must be present.
-	 */
-	public ?PriceType $minCost = null;
+    /**
+     * Price elements and tax for time
+     */
+    public ?TariffTimeType $reservationTime = null;
 
-	/**
-	 * Price with and without tax. At least one of _exclTax_, _inclTax_ must be present.
-	 */
-	public ?PriceType $maxCost = null;
+    public ?TariffFixedType $reservationFixed = null;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * Price with and without tax. At least one of _exclTax_, _inclTax_ must be present.
+     */
+    public ?PriceType $minCost = null;
+
+    /**
+     * Price with and without tax. At least one of _exclTax_, _inclTax_ must be present.
+     */
+    public ?PriceType $maxCost = null;
+
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 }

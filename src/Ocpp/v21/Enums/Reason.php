@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,24 +9,24 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum Reason: string
 {
-	case DeAuthorized = 'DeAuthorized';
-	case EmergencyStop = 'EmergencyStop';
-	case EnergyLimitReached = 'EnergyLimitReached';
-	case EVDisconnected = 'EVDisconnected';
-	case GroundFault = 'GroundFault';
-	case ImmediateReset = 'ImmediateReset';
-	case MasterPass = 'MasterPass';
-	case Local = 'Local';
-	case LocalOutOfCredit = 'LocalOutOfCredit';
-	case Other = 'Other';
-	case OvercurrentFault = 'OvercurrentFault';
-	case PowerLoss = 'PowerLoss';
-	case PowerQuality = 'PowerQuality';
-	case Reboot = 'Reboot';
-	case Remote = 'Remote';
-	case SOCLimitReached = 'SOCLimitReached';
-	case StoppedByEV = 'StoppedByEV';
-	case TimeLimitReached = 'TimeLimitReached';
-	case Timeout = 'Timeout';
-	case ReqEnergyTransferRejected = 'ReqEnergyTransferRejected';
+    case DeAuthorized = 'DeAuthorized';
+    case EmergencyStop = 'EmergencyStop';
+    case EnergyLimitReached = 'EnergyLimitReached';
+    case EVDisconnected = 'EVDisconnected';
+    case GroundFault = 'GroundFault';
+    case ImmediateReset = 'ImmediateReset';
+    case MasterPass = 'MasterPass';
+    case Local = 'Local';
+    case LocalOutOfCredit = 'LocalOutOfCredit';
+    case Other = 'Other';
+    case OvercurrentFault = 'OvercurrentFault';
+    case PowerLoss = 'PowerLoss';
+    case PowerQuality = 'PowerQuality';
+    case Reboot = 'Reboot';
+    case Remote = 'Remote';
+    case SOCLimitReached = 'SOCLimitReached';
+    case StoppedByEV = 'StoppedByEV';
+    case TimeLimitReached = 'TimeLimitReached';
+    case Timeout = 'Timeout';
+    case ReqEnergyTransferRejected = 'ReqEnergyTransferRejected';
 }

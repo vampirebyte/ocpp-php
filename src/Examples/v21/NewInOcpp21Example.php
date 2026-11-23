@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * What is new in OCPP 2.1 compared to 2.0.1, shown with a periodic event stream:
  *
@@ -11,10 +13,11 @@
  * and classes from the SolutionForest\OcppPhp\Ocpp\v21 namespace.
  */
 
-require __DIR__ . '/../../../vendor/autoload.php';
+require __DIR__.'/../../../vendor/autoload.php';
 
 use SolutionForest\OcppPhp\Ocpp\JsonSchemaRegistry;
 use SolutionForest\OcppPhp\Ocpp\JsonSchemaValidator;
+use SolutionForest\OcppPhp\Ocpp\Messages\CallError;
 use SolutionForest\OcppPhp\Ocpp\Messages\MessageTypeId;
 use SolutionForest\OcppPhp\Ocpp\Messages\Send;
 use SolutionForest\OcppPhp\Ocpp\v21\CallResults\OpenPeriodicEventStream as OpenPeriodicEventStreamResult;
@@ -39,11 +42,11 @@ $open = new OpenPeriodicEventStream([
     ],
 ]);
 JsonSchemaValidator::validate($open, 'v2.1');
-echo "CS -> CSMS: " . json_encode($open->toArray()) . "\n";
+echo 'CS -> CSMS: '.json_encode($open->toArray())."\n";
 
 $accepted = new OpenPeriodicEventStreamResult($open->uniqueId, ['status' => GenericStatus::Accepted]);
 JsonSchemaValidator::validate($accepted, 'v2.1');
-echo "CSMS -> CS: " . json_encode($accepted->toArray()) . "\n\n";
+echo 'CSMS -> CS: '.json_encode($accepted->toArray())."\n\n";
 
 // --------------------------------------------
 // 2. SEND: the stream data itself. One-way, the CSMS MUST NOT reply.
@@ -63,7 +66,7 @@ $raw = [6, 'stream-1-001', 'NotifyPeriodicEventStream', [
 $send = $registry->createFromArray($raw, 'v2.1');
 JsonSchemaValidator::validate($send, 'v2.1');
 
-echo "Received " . get_class($send) . "\n";
+echo 'Received '.$send::class."\n";
 if ($send instanceof Send) {
     echo "It is a SEND: process it, do not answer.\n\n";
 }
@@ -77,8 +80,12 @@ echo "--- 3. CALLRESULTERROR (messageTypeId 5) ---\n";
 $rawError = [5, $open->uniqueId, 'FormatViolation', 'Could not process the response', []];
 
 $error = $registry->createFromArray($rawError, 'v2.1');
+if (! $error instanceof CallError) {
+    throw new UnexpectedValueException('Expected a CallError');
+}
+
 JsonSchemaValidator::validate($error, 'v2.1');
 
-echo "Received " . get_class($error) . " (" . $error->errorCode . ")\n";
-echo "Is CALLRESULTERROR: " . ($error->isCallResultError() ? 'yes' : 'no') . "\n";
-echo "Type id: " . MessageTypeId::from($error->toArray()[0])->name . "\n";
+echo 'Received '.$error::class.' ('.$error->errorCode.")\n";
+echo 'Is CALLRESULTERROR: '.($error->isCallResultError() ? 'yes' : 'no')."\n";
+echo 'Type id: '.MessageTypeId::from($error->toArray()[0])->name."\n";

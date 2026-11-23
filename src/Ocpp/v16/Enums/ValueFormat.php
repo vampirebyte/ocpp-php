@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
 
 /**
@@ -7,6 +9,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ValueFormat: string
 {
-	case Raw = 'Raw';
-	case SignedData = 'SignedData';
+    case Raw = 'Raw';
+    case SignedData = 'SignedData';
 }

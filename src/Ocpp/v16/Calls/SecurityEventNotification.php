@@ -1,12 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class SecurityEventNotification extends Call
 {
-	public string $type;
-	public string $timestamp;
-	public ?string $techInfo = null;
+    public string $type;
+
+    public string $timestamp;
+
+    public ?string $techInfo = null;
 }

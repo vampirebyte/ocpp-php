@@ -1,42 +1,45 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Scripts;
 
-require_once __DIR__ . "/../../vendor/autoload.php";
+require_once __DIR__.'/../../vendor/autoload.php';
 
 use Nette\PhpGenerator\ClassType;
 
+/**
+ * Generates the Calls and CallResults: one class per message schema.
+ *
+ * @extends SchemaProcessor<array{calls: list<ClassType>, callResults: list<ClassType>}>
+ */
 class SchemaToDataclass extends SchemaProcessor
 {
     protected function processClasses(array $classes): void
     {
-        foreach ($classes['calls'] ?? [] as $class) {
+        foreach ($classes['calls'] as $class) {
             $this->generateDataClass($class, 'Calls');
         }
 
-        foreach ($classes['callResults'] ?? [] as $class) {
+        foreach ($classes['callResults'] as $class) {
             $this->generateDataClass($class, 'CallResults');
         }
     }
 
     protected function parseSchema(string $schema): array
     {
-        $schemaContent = json_decode(file_get_contents($schema), true);
+        $schemaContent = self::readSchema($schema);
 
         $title = $this->getNameFromSchema($schema);
         $schemaName = $title;
 
         $call = false;
-        $callResult = false;
         $send = false;
-        $calls = [];
-        $callResults = [];
 
-        if (substr($title, -7) === "Request") {
+        if (str_ends_with($title, 'Request')) {
             $call = true;
             $title = substr($title, 0, -7);
-        } elseif (substr($title, -8) === "Response") {
-            $callResult = true;
+        } elseif (str_ends_with($title, 'Response')) {
             $title = substr($title, 0, -8);
         } else {
             $call = true;
@@ -45,20 +48,14 @@ class SchemaToDataclass extends SchemaProcessor
             $send = $this->version !== 'v16';
         }
 
-        if (!isset($schemaContent["properties"])) {
-            $class = new ClassType($title);
-        } else {
-            $class = $this->mapPropertiesToClass($schemaContent, $title, $schemaContent, $schemaName);
-        }
+        $class = isset($schemaContent['properties'])
+            ? $this->mapPropertiesToClass($schemaContent, $title, $schemaContent, $schemaName)
+            : new ClassType($title);
 
         $class->setExtends($send ? 'Send' : ($call ? 'Call' : 'CallResult'));
 
-        if ($call) {
-            $calls[] = $class;
-        } elseif ($callResult) {
-            $callResults[] = $class;
-        }
-
-        return ['calls' => $calls, 'callResults' => $callResults];
+        return $call
+            ? ['calls' => [$class], 'callResults' => []]
+            : ['calls' => [], 'callResults' => [$class]];
     }
 }

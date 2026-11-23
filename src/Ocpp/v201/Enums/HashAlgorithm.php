@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum HashAlgorithm: string
 {
-	case SHA256 = 'SHA256';
-	case SHA384 = 'SHA384';
-	case SHA512 = 'SHA512';
+    case SHA256 = 'SHA256';
+    case SHA384 = 'SHA384';
+    case SHA512 = 'SHA512';
 }

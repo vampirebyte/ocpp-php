@@ -12,6 +12,14 @@ The purpose of this library is to provide the building blocks to construct a **c
 
 > **Note:** OCPP 2.0.1 includes fixes for all known issues in OCPP 2.0 and replaces it. Implementers are advised to use OCPP 2.0.1.
 
+## Requirements
+
+- PHP 8.4 or newer
+
+```bash
+composer require solution-forest/ocpp-php
+```
+
 ## Features
 
 - Full support for OCPP 1.6, OCPP 2.0.1 and OCPP 2.1.
@@ -41,15 +49,32 @@ JsonSchemaValidator::validate($message, 'v2.1'); // SolutionForest\OcppPhp\Ocpp\
 
 ## Generating classes from schemas
 
-The `Calls`, `CallResults`, `Datatypes`, `Enums` and `Interfaces` of each version are generated from the JSON schemas in `src/Ocpp/<version>/Schemas`:
+The `Calls`, `CallResults`, `Datatypes`, `Enums` and `Interfaces` of each version are generated from the JSON schemas in `src/Ocpp/<version>/Schemas`, then formatted with Pint. Do not edit them by hand: CI regenerates them and fails on any difference.
 
 ```bash
-php src/Scripts/RunSchemaProcessor.php all v21    # or: enum | datatype | dataclass | interface, and v16 | v201
+composer generate
 ```
+
+To generate one part of one version: `php src/Scripts/RunSchemaProcessor.php <all|enum|datatype|dataclass|interface> <v16|v201|v21>`, then `vendor/bin/pint src/Ocpp`.
+
+## Development
+
+```bash
+composer lint                 # apply Rector and Pint
+composer test                 # run every check below
+composer test:lint            # Pint and Rector have nothing to change
+composer test:types           # PHPStan, level max
+composer test:type-coverage   # 100% type coverage
+composer test:unit            # Pest with 100% code coverage
+```
+
+`composer test:unit` measures code coverage with Xdebug. Install it once, for example on Ubuntu: `sudo apt install php8.5-xdebug` (use your PHP version).
+
+Composer holds back package releases younger than 7 days (`config.policy.cooldown`), which needs Composer 2.11 or newer.
 
 ## Contribution
 
-Contributions are welcome! If you would like to improve this library or add new features, feel free to fork the repository and submit a pull request. Please ensure your code adheres to PSR standards.
+Contributions are welcome! If you would like to improve this library or add new features, feel free to fork the repository and submit a pull request. Run `composer lint` and `composer test` before you push.
 
 ---
 

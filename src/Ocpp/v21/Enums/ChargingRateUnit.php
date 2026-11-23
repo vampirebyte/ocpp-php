@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,6 +9,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ChargingRateUnit: string
 {
-	case W = 'W';
-	case A = 'A';
+    case W = 'W';
+    case A = 'A';
 }

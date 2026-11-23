@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,9 +9,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum MessageFormat: string
 {
-	case ASCII = 'ASCII';
-	case HTML = 'HTML';
-	case URI = 'URI';
-	case UTF8 = 'UTF8';
-	case QRCODE = 'QRCODE';
+    case ASCII = 'ASCII';
+    case HTML = 'HTML';
+    case URI = 'URI';
+    case UTF8 = 'UTF8';
+    case QRCODE = 'QRCODE';
 }

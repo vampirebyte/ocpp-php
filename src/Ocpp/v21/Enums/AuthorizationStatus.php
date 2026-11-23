@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,14 +9,14 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum AuthorizationStatus: string
 {
-	case Accepted = 'Accepted';
-	case Blocked = 'Blocked';
-	case ConcurrentTx = 'ConcurrentTx';
-	case Expired = 'Expired';
-	case Invalid = 'Invalid';
-	case NoCredit = 'NoCredit';
-	case NotAllowedTypeEVSE = 'NotAllowedTypeEVSE';
-	case NotAtThisLocation = 'NotAtThisLocation';
-	case NotAtThisTime = 'NotAtThisTime';
-	case Unknown = 'Unknown';
+    case Accepted = 'Accepted';
+    case Blocked = 'Blocked';
+    case ConcurrentTx = 'ConcurrentTx';
+    case Expired = 'Expired';
+    case Invalid = 'Invalid';
+    case NoCredit = 'NoCredit';
+    case NotAllowedTypeEVSE = 'NotAllowedTypeEVSE';
+    case NotAtThisLocation = 'NotAtThisLocation';
+    case NotAtThisTime = 'NotAtThisTime';
+    case Unknown = 'Unknown';
 }

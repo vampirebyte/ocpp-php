@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\Exceptions;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\CallError;
 
 class NotSupportedError extends CallError
 {
-    public string $errorCode = "NotSupported";
-    public string $errorDescription = "Requested Action is not known by receiver";
+    public string $errorCode = 'NotSupported';
+
+    public string $errorDescription = 'Requested Action is not known by receiver';
 }

@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use SolutionForest\OcppPhp\Ocpp\JsonSchemaValidator;
+use SolutionForest\OcppPhp\Ocpp\v16\Calls\StatusNotification;
+use SolutionForest\OcppPhp\Ocpp\v16\Calls\StopTransaction;
+use SolutionForest\OcppPhp\Ocpp\v16\Enums\ChargePointStatus;
 use SolutionForest\OcppPhp\Scripts\SchemaProcessor;
 
 /**
@@ -18,9 +22,12 @@ final class InlineEnumsTest extends TestCase
     public static function provideInlineEnums(): iterable
     {
         foreach (SchemaProcessor::SUPPORTED_VERSIONS as $version) {
-            foreach (glob(dirname(__DIR__) . "/src/Ocpp/{$version}/Schemas/*.json") ?: [] as $schemaFile) {
+            foreach (glob(dirname(__DIR__)."/src/Ocpp/{$version}/Schemas/*.json") ?: [] as $schemaFile) {
                 $schemaName = basename($schemaFile, '.json');
-                $schema = json_decode((string) file_get_contents($schemaFile), true);
+                $schema = json_decode((string) file_get_contents($schemaFile), true, 512, JSON_THROW_ON_ERROR);
+                if (! is_array($schema)) {
+                    throw new UnexpectedValueException("Invalid schema {$schemaFile}");
+                }
 
                 foreach (SchemaProcessor::findInlineEnums($version, $schemaName, $schema) as $inline) {
                     yield "{$version} {$schemaName}:{$inline['path']}" => [$version, $inline['enum'], $inline['values']];
@@ -30,7 +37,7 @@ final class InlineEnumsTest extends TestCase
     }
 
     /**
-     * @param list<string> $expected
+     * @param  list<string>  $expected
      */
     #[DataProvider('provideInlineEnums')]
     public function test_inline_enum_is_named_and_contains_schema_values(string $version, ?string $enum, array $expected): void
@@ -40,7 +47,8 @@ final class InlineEnumsTest extends TestCase
         $class = "SolutionForest\\OcppPhp\\Ocpp\\{$version}\\Enums\\{$enum}";
         self::assertTrue(enum_exists($class), "{$class} was not generated");
 
-        $values = array_map(static fn (\BackedEnum $case): string => $case->value, $class::cases());
+        /** @var class-string<BackedEnum> $class */
+        $values = array_map(static fn (BackedEnum $case): int|string => $case->value, $class::cases());
         foreach ($expected as $value) {
             self::assertContains($value, $values);
         }
@@ -67,9 +75,9 @@ final class InlineEnumsTest extends TestCase
 
     public function test_top_level_inline_enum_properties_are_typed_with_the_enum(): void
     {
-        $status = (string) (new \ReflectionProperty(\SolutionForest\OcppPhp\Ocpp\v16\Calls\StatusNotification::class, 'status'))->getType();
-        $errorCode = (string) (new \ReflectionProperty(\SolutionForest\OcppPhp\Ocpp\v16\Calls\StatusNotification::class, 'errorCode'))->getType();
-        $reason = (string) (new \ReflectionProperty(\SolutionForest\OcppPhp\Ocpp\v16\Calls\StopTransaction::class, 'reason'))->getType();
+        $status = (string) new ReflectionProperty(StatusNotification::class, 'status')->getType();
+        $errorCode = (string) new ReflectionProperty(StatusNotification::class, 'errorCode')->getType();
+        $reason = (string) new ReflectionProperty(StopTransaction::class, 'reason')->getType();
 
         self::assertStringContainsString('ChargePointStatus', $status);
         self::assertStringContainsString('ChargePointErrorCode', $errorCode);
@@ -78,13 +86,13 @@ final class InlineEnumsTest extends TestCase
 
     public function test_enum_values_are_serialized_and_validated(): void
     {
-        $call = new \SolutionForest\OcppPhp\Ocpp\v16\Calls\StatusNotification([
+        $call = new StatusNotification([
             'connectorId' => 1,
             'errorCode' => 'NoError',
         ]);
-        $call->status = \SolutionForest\OcppPhp\Ocpp\v16\Enums\ChargePointStatus::Charging;
+        $call->status = ChargePointStatus::Charging;
 
         self::assertStringContainsString('"status":"Charging"', (string) json_encode($call->toArray()));
-        self::assertTrue(\SolutionForest\OcppPhp\Ocpp\JsonSchemaValidator::validate($call, 'v1.6'));
+        self::assertTrue(JsonSchemaValidator::validate($call, 'v1.6'));
     }
 }

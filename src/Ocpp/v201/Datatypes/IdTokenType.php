@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Datatypes;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -8,20 +10,24 @@ use SolutionForest\OcppPhp\Ocpp\v201\Enums\IdToken;
 
 class IdTokenType extends Datatype
 {
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 
-	/** @var list<AdditionalInfoType>|null */
-	#[ListOf(AdditionalInfoType::class)]
-	public ?array $additionalInfo = null;
+    /**
+     * @var list<AdditionalInfoType>|null
+     */
+    #[ListOf(AdditionalInfoType::class)]
+    public ?array $additionalInfo = null;
 
-	/**
-	 * IdToken is case insensitive. Might hold the hidden id of an RFID tag, but can for example also contain a UUID.
-	 */
-	public string $idToken;
+    /**
+     * IdToken is case insensitive. Might hold the hidden id of an RFID tag, but can for example also contain a UUID.
+     */
+    public string $idToken;
 
-	/**
-	 * Enumeration of possible idToken types.
-	 */
-	public string|IdToken $type;
+    /**
+     * Enumeration of possible idToken types.
+     */
+    public string|IdToken $type;
 }

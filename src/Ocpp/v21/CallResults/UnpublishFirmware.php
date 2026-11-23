@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\CallResults;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\CallResult;
@@ -7,11 +9,13 @@ use SolutionForest\OcppPhp\Ocpp\v21\Enums\UnpublishFirmwareStatus;
 
 class UnpublishFirmware extends CallResult
 {
-	/**
-	 * Indicates whether the Local Controller succeeded in unpublishing the firmware.
-	 */
-	public string|UnpublishFirmwareStatus $status;
+    /**
+     * Indicates whether the Local Controller succeeded in unpublishing the firmware.
+     */
+    public string|UnpublishFirmwareStatus $status;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 }

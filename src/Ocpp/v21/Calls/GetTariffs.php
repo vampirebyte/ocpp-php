@@ -1,16 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class GetTariffs extends Call
 {
-	/**
-	 * EVSE id to get tariff from. When _evseId_ = 0, this gets tariffs from all EVSEs.
-	 */
-	public int $evseId;
+    /**
+     * EVSE id to get tariff from. When _evseId_ = 0, this gets tariffs from all EVSEs.
+     */
+    public int $evseId;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 }

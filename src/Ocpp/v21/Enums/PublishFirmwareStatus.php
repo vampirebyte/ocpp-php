@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,14 +9,14 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum PublishFirmwareStatus: string
 {
-	case Idle = 'Idle';
-	case DownloadScheduled = 'DownloadScheduled';
-	case Downloading = 'Downloading';
-	case Downloaded = 'Downloaded';
-	case Published = 'Published';
-	case DownloadFailed = 'DownloadFailed';
-	case DownloadPaused = 'DownloadPaused';
-	case InvalidChecksum = 'InvalidChecksum';
-	case ChecksumVerified = 'ChecksumVerified';
-	case PublishFailed = 'PublishFailed';
+    case Idle = 'Idle';
+    case DownloadScheduled = 'DownloadScheduled';
+    case Downloading = 'Downloading';
+    case Downloaded = 'Downloaded';
+    case Published = 'Published';
+    case DownloadFailed = 'DownloadFailed';
+    case DownloadPaused = 'DownloadPaused';
+    case InvalidChecksum = 'InvalidChecksum';
+    case ChecksumVerified = 'ChecksumVerified';
+    case PublishFailed = 'PublishFailed';
 }

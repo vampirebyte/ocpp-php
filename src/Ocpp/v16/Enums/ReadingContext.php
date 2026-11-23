@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
 
 /**
@@ -7,12 +9,12 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ReadingContext: string
 {
-	case InterruptionBegin = 'Interruption.Begin';
-	case InterruptionEnd = 'Interruption.End';
-	case SampleClock = 'Sample.Clock';
-	case SamplePeriodic = 'Sample.Periodic';
-	case TransactionBegin = 'Transaction.Begin';
-	case TransactionEnd = 'Transaction.End';
-	case Trigger = 'Trigger';
-	case Other = 'Other';
+    case InterruptionBegin = 'Interruption.Begin';
+    case InterruptionEnd = 'Interruption.End';
+    case SampleClock = 'Sample.Clock';
+    case SamplePeriodic = 'Sample.Periodic';
+    case TransactionBegin = 'Transaction.Begin';
+    case TransactionEnd = 'Transaction.End';
+    case Trigger = 'Trigger';
+    case Other = 'Other';
 }

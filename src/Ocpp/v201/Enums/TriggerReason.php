@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,25 +9,25 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum TriggerReason: string
 {
-	case Authorized = 'Authorized';
-	case CablePluggedIn = 'CablePluggedIn';
-	case ChargingRateChanged = 'ChargingRateChanged';
-	case ChargingStateChanged = 'ChargingStateChanged';
-	case Deauthorized = 'Deauthorized';
-	case EnergyLimitReached = 'EnergyLimitReached';
-	case EVCommunicationLost = 'EVCommunicationLost';
-	case EVConnectTimeout = 'EVConnectTimeout';
-	case MeterValueClock = 'MeterValueClock';
-	case MeterValuePeriodic = 'MeterValuePeriodic';
-	case TimeLimitReached = 'TimeLimitReached';
-	case Trigger = 'Trigger';
-	case UnlockCommand = 'UnlockCommand';
-	case StopAuthorized = 'StopAuthorized';
-	case EVDeparted = 'EVDeparted';
-	case EVDetected = 'EVDetected';
-	case RemoteStop = 'RemoteStop';
-	case RemoteStart = 'RemoteStart';
-	case AbnormalCondition = 'AbnormalCondition';
-	case SignedDataReceived = 'SignedDataReceived';
-	case ResetCommand = 'ResetCommand';
+    case Authorized = 'Authorized';
+    case CablePluggedIn = 'CablePluggedIn';
+    case ChargingRateChanged = 'ChargingRateChanged';
+    case ChargingStateChanged = 'ChargingStateChanged';
+    case Deauthorized = 'Deauthorized';
+    case EnergyLimitReached = 'EnergyLimitReached';
+    case EVCommunicationLost = 'EVCommunicationLost';
+    case EVConnectTimeout = 'EVConnectTimeout';
+    case MeterValueClock = 'MeterValueClock';
+    case MeterValuePeriodic = 'MeterValuePeriodic';
+    case TimeLimitReached = 'TimeLimitReached';
+    case Trigger = 'Trigger';
+    case UnlockCommand = 'UnlockCommand';
+    case StopAuthorized = 'StopAuthorized';
+    case EVDeparted = 'EVDeparted';
+    case EVDetected = 'EVDetected';
+    case RemoteStop = 'RemoteStop';
+    case RemoteStart = 'RemoteStart';
+    case AbnormalCondition = 'AbnormalCondition';
+    case SignedDataReceived = 'SignedDataReceived';
+    case ResetCommand = 'ResetCommand';
 }

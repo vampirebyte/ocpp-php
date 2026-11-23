@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
@@ -8,23 +10,25 @@ use SolutionForest\OcppPhp\Ocpp\v21\Enums\FirmwareStatus;
 
 class FirmwareStatusNotification extends Call
 {
-	/**
-	 * This contains the progress status of the firmware installation.
-	 */
-	public string|FirmwareStatus $status;
+    /**
+     * This contains the progress status of the firmware installation.
+     */
+    public string|FirmwareStatus $status;
 
-	/**
-	 * The request id that was provided in the
-	 * UpdateFirmwareRequest that started this firmware update.
-	 * This field is mandatory, unless the message was triggered by a TriggerMessageRequest AND there is no firmware update ongoing.
-	 */
-	public ?int $requestId = null;
+    /**
+     * The request id that was provided in the
+     * UpdateFirmwareRequest that started this firmware update.
+     * This field is mandatory, unless the message was triggered by a TriggerMessageRequest AND there is no firmware update ongoing.
+     */
+    public ?int $requestId = null;
 
-	/**
-	 * Element providing more information about the status.
-	 */
-	public ?StatusInfoType $statusInfo = null;
+    /**
+     * Element providing more information about the status.
+     */
+    public ?StatusInfoType $statusInfo = null;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 }

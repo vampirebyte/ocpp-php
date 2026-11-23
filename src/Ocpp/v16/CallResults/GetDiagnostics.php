@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\CallResults;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\CallResult;
 
 class GetDiagnostics extends CallResult
 {
-	public ?string $fileName = null;
+    public ?string $fileName = null;
 }

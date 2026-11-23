@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum DataTransferStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case UnknownMessageId = 'UnknownMessageId';
-	case UnknownVendorId = 'UnknownVendorId';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case UnknownMessageId = 'UnknownMessageId';
+    case UnknownVendorId = 'UnknownVendorId';
 }

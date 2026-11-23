@@ -1,12 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Scripts;
 
-require_once __DIR__ . "/../../vendor/autoload.php";
-
-use Nette\PhpGenerator\ClassType;
+require_once __DIR__.'/../../vendor/autoload.php';
 use Nette\PhpGenerator\InterfaceType;
 
+/**
+ * Generates OcppServiceInterface: a handle<Action>() method for every Call and SEND.
+ *
+ * @extends SchemaProcessor<list<string>>
+ */
 class SchemaToInterface extends SchemaProcessor
 {
     public InterfaceType $interface;
@@ -14,26 +19,25 @@ class SchemaToInterface extends SchemaProcessor
     public function main(): void
     {
         $this->readVersion();
-        $schemas = glob(__DIR__ . $this->basepath . "/Schemas/*.json");
-        sort($schemas);
 
         $this->interface = new InterfaceType('OcppServiceInterface');
-        foreach ($schemas as $schema) {
+        foreach ($this->schemaFiles() as $schema) {
             $classes = $this->parseSchema($schema);
             $this->processClasses($classes);
         }
+
         $this->generateDataClass($this->interface, 'Interfaces');
     }
-
-
 
     protected function processClasses(array $classes): void
     {
         foreach ($classes as $class) {
             echo "Processing {$class}\n";
-            $this->interface->addMethod('handle' . $class)->setStatic()
+            $this->interface->addMethod('handle'.$class)->setStatic()
                 ->setPublic()
                 ->setReturnType('array')
+                ->addComment('@param array<mixed> $message')
+                ->addComment('@return array<mixed>')
                 ->addParameter('message')->setType('array');
         }
     }
@@ -42,17 +46,14 @@ class SchemaToInterface extends SchemaProcessor
     {
         $title = $this->getNameFromSchema($schema);
 
-        if (substr($title, -7) === "Request") {
-            $call = true;
-            $title = substr($title, 0, -7);
-        } elseif (substr($title, -8) === "Response") {
-            $call = false;
-            $title = substr($title, 0, -8);
-        } else {
-            $call = true;
+        if (str_ends_with($title, 'Request')) {
+            return [substr($title, 0, -7)];
         }
 
+        if (str_ends_with($title, 'Response')) {
+            return [];
+        }
 
-        return $call ? [$title] : [];
+        return [$title];
     }
 }

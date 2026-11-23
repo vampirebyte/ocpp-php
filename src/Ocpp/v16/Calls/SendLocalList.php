@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -9,10 +11,13 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\UpdateType;
 
 class SendLocalList extends Call
 {
-	public int $listVersion;
+    public int $listVersion;
 
-	/** @var list<AuthorizationData>|null */
-	#[ListOf(AuthorizationData::class)]
-	public ?array $localAuthorizationList = null;
-	public string|UpdateType $updateType;
+    /**
+     * @var list<AuthorizationData>|null
+     */
+    #[ListOf(AuthorizationData::class)]
+    public ?array $localAuthorizationList = null;
+
+    public string|UpdateType $updateType;
 }

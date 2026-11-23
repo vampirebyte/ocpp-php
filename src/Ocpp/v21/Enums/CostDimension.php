@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,11 +9,11 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum CostDimension: string
 {
-	case Energy = 'Energy';
-	case MaxCurrent = 'MaxCurrent';
-	case MinCurrent = 'MinCurrent';
-	case MaxPower = 'MaxPower';
-	case MinPower = 'MinPower';
-	case IdleTIme = 'IdleTIme';
-	case ChargingTime = 'ChargingTime';
+    case Energy = 'Energy';
+    case MaxCurrent = 'MaxCurrent';
+    case MinCurrent = 'MinCurrent';
+    case MaxPower = 'MaxPower';
+    case MinPower = 'MinPower';
+    case IdleTIme = 'IdleTIme';
+    case ChargingTime = 'ChargingTime';
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Datatypes;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -8,16 +10,21 @@ use SolutionForest\OcppPhp\Ocpp\v201\Enums\GetCertificateIdUse;
 
 class CertificateHashDataChainType extends Datatype
 {
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
-	public CertificateHashDataType $certificateHashData;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 
-	/**
-	 * Indicates the type of the requested certificate(s).
-	 */
-	public string|GetCertificateIdUse $certificateType;
+    public CertificateHashDataType $certificateHashData;
 
-	/** @var list<CertificateHashDataType>|null */
-	#[ListOf(CertificateHashDataType::class)]
-	public ?array $childCertificateHashData = null;
+    /**
+     * Indicates the type of the requested certificate(s).
+     */
+    public string|GetCertificateIdUse $certificateType;
+
+    /**
+     * @var list<CertificateHashDataType>|null
+     */
+    #[ListOf(CertificateHashDataType::class)]
+    public ?array $childCertificateHashData = null;
 }

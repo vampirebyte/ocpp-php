@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\CallResults;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\CallResult;
@@ -7,5 +9,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\TriggerMessageStatus;
 
 class ExtendedTriggerMessage extends CallResult
 {
-	public string|TriggerMessageStatus $status;
+    public string|TriggerMessageStatus $status;
 }

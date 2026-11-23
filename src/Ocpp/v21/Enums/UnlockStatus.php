@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum UnlockStatus: string
 {
-	case Unlocked = 'Unlocked';
-	case UnlockFailed = 'UnlockFailed';
-	case OngoingAuthorizedTransaction = 'OngoingAuthorizedTransaction';
-	case UnknownConnector = 'UnknownConnector';
+    case Unlocked = 'Unlocked';
+    case UnlockFailed = 'UnlockFailed';
+    case OngoingAuthorizedTransaction = 'OngoingAuthorizedTransaction';
+    case UnknownConnector = 'UnknownConnector';
 }

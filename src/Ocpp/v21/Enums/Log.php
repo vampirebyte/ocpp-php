@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum Log: string
 {
-	case DiagnosticsLog = 'DiagnosticsLog';
-	case SecurityLog = 'SecurityLog';
-	case DataCollectorLog = 'DataCollectorLog';
+    case DiagnosticsLog = 'DiagnosticsLog';
+    case SecurityLog = 'SecurityLog';
+    case DataCollectorLog = 'DataCollectorLog';
 }

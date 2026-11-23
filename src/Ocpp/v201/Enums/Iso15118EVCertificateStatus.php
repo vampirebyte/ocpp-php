@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,6 +9,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum Iso15118EVCertificateStatus: string
 {
-	case Accepted = 'Accepted';
-	case Failed = 'Failed';
+    case Accepted = 'Accepted';
+    case Failed = 'Failed';
 }

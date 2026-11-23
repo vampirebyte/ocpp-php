@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -8,30 +10,34 @@ use SolutionForest\OcppPhp\Ocpp\v21\Datatypes\ReportDataType;
 
 class NotifyReport extends Call
 {
-	/**
-	 * The id of the GetReportRequest  or GetBaseReportRequest that requested this report
-	 */
-	public int $requestId;
+    /**
+     * The id of the GetReportRequest  or GetBaseReportRequest that requested this report
+     */
+    public int $requestId;
 
-	/**
-	 * Timestamp of the moment this message was generated at the Charging Station.
-	 */
-	public string $generatedAt;
+    /**
+     * Timestamp of the moment this message was generated at the Charging Station.
+     */
+    public string $generatedAt;
 
-	/** @var list<ReportDataType>|null */
-	#[ListOf(ReportDataType::class)]
-	public ?array $reportData = null;
+    /**
+     * @var list<ReportDataType>|null
+     */
+    #[ListOf(ReportDataType::class)]
+    public ?array $reportData = null;
 
-	/**
-	 * “to be continued” indicator. Indicates whether another part of the report follows in an upcoming notifyReportRequest message. Default value when omitted is false.
-	 */
-	public ?bool $tbc = null;
+    /**
+     * “to be continued” indicator. Indicates whether another part of the report follows in an upcoming notifyReportRequest message. Default value when omitted is false.
+     */
+    public ?bool $tbc = null;
 
-	/**
-	 * Sequence number of this message. First message starts at 0.
-	 */
-	public int $seqNo;
+    /**
+     * Sequence number of this message. First message starts at 0.
+     */
+    public int $seqNo;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 }

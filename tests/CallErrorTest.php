@@ -3,22 +3,22 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\FormationViolationError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\FormatViolationError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\GenericError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\InternalError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\NotImplementedError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\NotSupportedError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\OccurenceConstraintViolationError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\OccurrenceConstraintViolationError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\PropertyConstraintViolationError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\ProtocolError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\SecurityError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\TypeConstraintViolationError;
+use SolutionForest\OcppPhp\Ocpp\Exceptions\UnknownCallErrorCodeError;
 use SolutionForest\OcppPhp\Ocpp\JsonSchemaRegistry;
 use SolutionForest\OcppPhp\Ocpp\JsonSchemaValidator;
 use SolutionForest\OcppPhp\Ocpp\Messages\CallError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\NotImplementedError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\NotSupportedError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\InternalError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\ProtocolError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\SecurityError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\FormatViolationError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\FormationViolationError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\GenericError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\TypeConstraintViolationError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\OccurrenceConstraintViolationError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\OccurenceConstraintViolationError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\PropertyConstraintViolationError;
-use SolutionForest\OcppPhp\Ocpp\Exceptions\UnknownCallErrorCodeError;
 
 final class CallErrorTest extends TestCase
 {
@@ -184,8 +184,8 @@ final class CallErrorTest extends TestCase
 
     public function test_from_array_throws_on_invalid_message_type(): void
     {
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Invalid message type for CallError, expected 4 or 5 got 3');
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessageIsOrContains('Invalid message type for CallError, expected 4 or 5 got 3');
 
         CallError::fromArray([3, 'test-id', ['status' => 'Accepted']]);
     }
@@ -202,7 +202,7 @@ final class CallErrorTest extends TestCase
         $this->assertSame('NotImplemented', $array[2]);
         $this->assertSame('', $array[3]);
         // errorDetails is cast to (object) in toArray() for JSON encoding compatibility
-        $this->assertInstanceOf(\stdClass::class, $array[4]);
+        $this->assertInstanceOf(stdClass::class, $array[4]);
     }
 
     public function test_to_array_roundtrip_with_details(): void
@@ -260,7 +260,7 @@ final class CallErrorTest extends TestCase
         $result = JsonSchemaValidator::validate($error, 'v1.6', false);
 
         $this->assertInstanceOf(ProtocolError::class, $result);
-        $this->assertStringContainsString('errorCode', $result->errorDetails[0]);
+        $this->assertSame(['The property errorCode is required and must be a non-empty string'], $result->errorDetails);
     }
 
     public function test_validator_throws_on_malformed_call_error_when_throw_enabled(): void
@@ -268,8 +268,8 @@ final class CallErrorTest extends TestCase
         $error = new NotImplementedError('test-id');
         $error->errorCode = '';
 
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('ProtocolError:');
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessageIsOrContains('ProtocolError:');
 
         JsonSchemaValidator::validate($error, 'v1.6', true);
     }
@@ -281,7 +281,7 @@ final class CallErrorTest extends TestCase
         $result = JsonSchemaValidator::validate($raw, 'v1.6', false);
 
         $this->assertInstanceOf(ProtocolError::class, $result);
-        $this->assertStringContainsString('errorCode', $result->errorDetails[0]);
+        $this->assertSame(['The property errorCode is required and must be a non-empty string'], $result->errorDetails);
     }
 
     public function test_validator_accepts_unknown_error_codes(): void

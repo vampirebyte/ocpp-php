@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php" cacheDirectory=".phpunit.cache">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         cacheDirectory=".phpunit.cache"
+         colors="true"
+>
     <testsuites>
         <testsuite name="default">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <!-- Type coverage checks every directory in <include>; line coverage also honours <exclude>. -->
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+        <exclude>
+            <!-- Demo scripts, run manually against a WebSocket peer. -->
+            <directory>src/Examples</directory>
+            <!-- Dev-only code generator, verified by the CI check that regenerates every class. -->
+            <directory>src/Scripts</directory>
+        </exclude>
+    </source>
 </phpunit>

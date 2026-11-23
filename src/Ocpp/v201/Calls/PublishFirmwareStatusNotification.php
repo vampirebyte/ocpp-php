@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
@@ -7,25 +9,29 @@ use SolutionForest\OcppPhp\Ocpp\v201\Enums\PublishFirmwareStatus;
 
 class PublishFirmwareStatusNotification extends Call
 {
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 
-	/**
-	 * This contains the progress status of the publishfirmware
-	 * installation.
-	 */
-	public string|PublishFirmwareStatus $status;
+    /**
+     * This contains the progress status of the publishfirmware
+     * installation.
+     */
+    public string|PublishFirmwareStatus $status;
 
-	/**
-	 * Required if status is Published. Can be multiple URI’s, if the Local Controller supports e.g. HTTP, HTTPS, and FTP.
-	 */
-	public ?array $location = null;
+    /**
+     * Required if status is Published. Can be multiple URI’s, if the Local Controller supports e.g. HTTP, HTTPS, and FTP.
+     *
+     * @var list<string>|null
+     */
+    public ?array $location = null;
 
-	/**
-	 * The request id that was
-	 * provided in the
-	 * PublishFirmwareRequest which
-	 * triggered this action.
-	 */
-	public ?int $requestId = null;
+    /**
+     * The request id that was
+     * provided in the
+     * PublishFirmwareRequest which
+     * triggered this action.
+     */
+    public ?int $requestId = null;
 }

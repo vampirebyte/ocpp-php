@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,12 +9,12 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum IdToken: string
 {
-	case Central = 'Central';
-	case eMAID = 'eMAID';
-	case ISO14443 = 'ISO14443';
-	case ISO15693 = 'ISO15693';
-	case KeyCode = 'KeyCode';
-	case Local = 'Local';
-	case MacAddress = 'MacAddress';
-	case NoAuthorization = 'NoAuthorization';
+    case Central = 'Central';
+    case eMAID = 'eMAID';
+    case ISO14443 = 'ISO14443';
+    case ISO15693 = 'ISO15693';
+    case KeyCode = 'KeyCode';
+    case Local = 'Local';
+    case MacAddress = 'MacAddress';
+    case NoAuthorization = 'NoAuthorization';
 }

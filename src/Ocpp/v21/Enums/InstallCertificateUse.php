@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,9 +9,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum InstallCertificateUse: string
 {
-	case V2GRootCertificate = 'V2GRootCertificate';
-	case MORootCertificate = 'MORootCertificate';
-	case ManufacturerRootCertificate = 'ManufacturerRootCertificate';
-	case CSMSRootCertificate = 'CSMSRootCertificate';
-	case OEMRootCertificate = 'OEMRootCertificate';
+    case V2GRootCertificate = 'V2GRootCertificate';
+    case MORootCertificate = 'MORootCertificate';
+    case ManufacturerRootCertificate = 'ManufacturerRootCertificate';
+    case CSMSRootCertificate = 'CSMSRootCertificate';
+    case OEMRootCertificate = 'OEMRootCertificate';
 }

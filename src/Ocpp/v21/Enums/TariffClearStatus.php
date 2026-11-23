@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum TariffClearStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case NoTariff = 'NoTariff';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case NoTariff = 'NoTariff';
 }

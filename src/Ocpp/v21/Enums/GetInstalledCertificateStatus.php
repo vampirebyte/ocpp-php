@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,6 +9,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum GetInstalledCertificateStatus: string
 {
-	case Accepted = 'Accepted';
-	case NotFound = 'NotFound';
+    case Accepted = 'Accepted';
+    case NotFound = 'NotFound';
 }

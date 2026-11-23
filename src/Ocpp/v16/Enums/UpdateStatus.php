@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum UpdateStatus: string
 {
-	case Accepted = 'Accepted';
-	case Failed = 'Failed';
-	case NotSupported = 'NotSupported';
-	case VersionMismatch = 'VersionMismatch';
+    case Accepted = 'Accepted';
+    case Failed = 'Failed';
+    case NotSupported = 'NotSupported';
+    case VersionMismatch = 'VersionMismatch';
 }

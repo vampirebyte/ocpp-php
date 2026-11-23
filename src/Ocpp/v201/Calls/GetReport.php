@@ -1,27 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 use SolutionForest\OcppPhp\Ocpp\v201\Datatypes\ComponentVariableType;
+use SolutionForest\OcppPhp\Ocpp\v201\Enums\ComponentCriterion;
 
 class GetReport extends Call
 {
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 
-	/** @var list<ComponentVariableType>|null */
-	#[ListOf(ComponentVariableType::class)]
-	public ?array $componentVariable = null;
+    /**
+     * @var list<ComponentVariableType>|null
+     */
+    #[ListOf(ComponentVariableType::class)]
+    public ?array $componentVariable = null;
 
-	/**
-	 * The Id of the request.
-	 */
-	public int $requestId;
+    /**
+     * The Id of the request.
+     */
+    public int $requestId;
 
-	/**
-	 * This field contains criteria for components for which a report is requested
-	 */
-	public ?array $componentCriteria = null;
+    /**
+     * This field contains criteria for components for which a report is requested
+     *
+     * @var list<string|ComponentCriterion>|null
+     */
+    public ?array $componentCriteria = null;
 }

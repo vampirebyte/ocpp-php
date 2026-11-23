@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,10 +9,10 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum Location: string
 {
-	case Body = 'Body';
-	case Cable = 'Cable';
-	case EV = 'EV';
-	case Inlet = 'Inlet';
-	case Outlet = 'Outlet';
-	case Upstream = 'Upstream';
+    case Body = 'Body';
+    case Cable = 'Cable';
+    case EV = 'EV';
+    case Inlet = 'Inlet';
+    case Outlet = 'Outlet';
+    case Upstream = 'Upstream';
 }

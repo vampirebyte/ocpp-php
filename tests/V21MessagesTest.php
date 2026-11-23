@@ -10,6 +10,7 @@ use SolutionForest\OcppPhp\Ocpp\JsonSchemaValidator;
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 use SolutionForest\OcppPhp\Ocpp\Messages\CallError;
 use SolutionForest\OcppPhp\Ocpp\Messages\Send;
+use SolutionForest\OcppPhp\Ocpp\v201\Calls\MeterValues;
 use SolutionForest\OcppPhp\Ocpp\v21\CallResults\BootNotification as BootNotificationResult;
 use SolutionForest\OcppPhp\Ocpp\v21\Calls\BootNotification;
 use SolutionForest\OcppPhp\Ocpp\v21\Calls\CostUpdated;
@@ -26,13 +27,13 @@ final class V21MessagesTest extends TestCase
      */
     public static function provideGeneratedClasses(): iterable
     {
-        $root = dirname(__DIR__) . '/src/Ocpp';
+        $root = __DIR__.'/../src/Ocpp';
 
         foreach (['v16', 'v201', 'v21'] as $version) {
             foreach (['Calls', 'CallResults', 'Datatypes', 'Enums'] as $kind) {
                 foreach (glob("{$root}/{$version}/{$kind}/*.php") ?: [] as $file) {
-                    $class = "SolutionForest\\OcppPhp\\Ocpp\\{$version}\\{$kind}\\" . basename($file, '.php');
-                    yield "{$version}/{$kind}/" . basename($file, '.php') => [$class];
+                    $class = "SolutionForest\\OcppPhp\\Ocpp\\{$version}\\{$kind}\\".basename($file, '.php');
+                    yield "{$version}/{$kind}/".basename($file, '.php') => [$class];
                 }
             }
         }
@@ -46,7 +47,7 @@ final class V21MessagesTest extends TestCase
 
     public function test_latest_version_is_v21(): void
     {
-        self::assertSame('v2.1', (new JsonSchemaRegistry())->findLatestVersion());
+        self::assertSame('v2.1', new JsonSchemaRegistry()->findLatestVersion());
     }
 
     public function test_boot_notification_round_trip(): void
@@ -56,7 +57,7 @@ final class V21MessagesTest extends TestCase
             'chargingStation' => ['model' => 'M1', 'vendorName' => 'Vendor'],
         ]];
 
-        $call = (new JsonSchemaRegistry())->createFromArray($raw, 'v2.1');
+        $call = new JsonSchemaRegistry()->createFromArray($raw, 'v2.1');
 
         self::assertInstanceOf(BootNotification::class, $call);
         self::assertSame('boot-1', $call->uniqueId);
@@ -80,12 +81,12 @@ final class V21MessagesTest extends TestCase
 
         self::assertSame(BootReason::PowerUp, $call->reason);
         self::assertTrue(JsonSchemaValidator::validate($call, 'v2.1'));
-        self::assertStringContainsString('"reason":"PowerUp"', json_encode($call->toArray()));
+        self::assertStringContainsString('"reason":"PowerUp"', (string) json_encode($call->toArray()));
     }
 
     public function test_object_validation_handles_nested_arrays_of_objects_in_v201(): void
     {
-        $call = new \SolutionForest\OcppPhp\Ocpp\v201\Calls\MeterValues([
+        $call = new MeterValues([
             'evseId' => 1,
             'meterValue' => [['timestamp' => '2026-01-01T00:00:00Z', 'sampledValue' => [['value' => 1]]]],
         ]);
@@ -110,7 +111,7 @@ final class V21MessagesTest extends TestCase
             'data' => [['t' => 0.5, 'v' => '230.1']],
         ]];
 
-        $message = (new JsonSchemaRegistry())->createFromArray($raw, 'v2.1');
+        $message = new JsonSchemaRegistry()->createFromArray($raw, 'v2.1');
 
         self::assertInstanceOf(NotifyPeriodicEventStream::class, $message);
         self::assertInstanceOf(Send::class, $message);
@@ -133,17 +134,17 @@ final class V21MessagesTest extends TestCase
 
     public function test_send_message_type_rejected_for_regular_call_action(): void
     {
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('cannot be sent as a SEND message');
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessageIsOrContains('cannot be sent as a SEND message');
 
-        (new JsonSchemaRegistry())->createFromArray([6, 'x', 'BootNotification', []], 'v2.1');
+        new JsonSchemaRegistry()->createFromArray([6, 'x', 'BootNotification', []], 'v2.1');
     }
 
     public function test_call_result_error_is_parsed_and_round_trips(): void
     {
         $raw = [5, 'cre-1', 'InternalError', 'Could not process result', ['reason' => 'db']];
 
-        $error = (new JsonSchemaRegistry())->createFromArray($raw, 'v2.1');
+        $error = new JsonSchemaRegistry()->createFromArray($raw, 'v2.1');
 
         self::assertInstanceOf(CallError::class, $error);
         self::assertInstanceOf(InternalError::class, $error);

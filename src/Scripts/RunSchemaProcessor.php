@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Generate PHP classes from the OCPP JSON schemas.
  *
@@ -11,7 +13,7 @@
  *   version: v16 | v201 | v21
  */
 
-require_once __DIR__ . "/../../vendor/autoload.php";
+require_once __DIR__.'/../../vendor/autoload.php';
 
 use SolutionForest\OcppPhp\Scripts\SchemaProcessor;
 use SolutionForest\OcppPhp\Scripts\SchemaToDataclass;
@@ -30,24 +32,23 @@ $input = $argv[1] ?? null;
 $version = $argv[2] ?? null;
 
 if ($input === null) {
-    echo "Which type should be generated? Select an option: (" . implode('/', array_keys($generators)) . "/all): ";
+    echo 'Which type should be generated? Select an option: ('.implode('/', array_keys($generators)).'/all): ';
     $input = trim((string) fgets(STDIN));
 }
 
-if ($input !== 'all' && !isset($generators[$input])) {
+if ($input !== 'all' && ! isset($generators[$input])) {
     echo "Invalid selection.\n";
     exit(1);
 }
 
 if ($version === null) {
-    echo "Select version (" . implode('/', SchemaProcessor::SUPPORTED_VERSIONS) . "): ";
+    echo 'Select version ('.implode('/', SchemaProcessor::SUPPORTED_VERSIONS).'): ';
     $version = trim((string) fgets(STDIN));
 }
 
 $selected = $input === 'all' ? $generators : [$input => $generators[$input]];
 
 foreach ($selected as $class) {
-    /** @var SchemaProcessor $converter */
     $converter = new $class($version);
     $converter->main();
 }

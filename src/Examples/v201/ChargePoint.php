@@ -1,109 +1,88 @@
 <?php
 
-require __DIR__ . '/../../../vendor/autoload.php';
+declare(strict_types=1);
 
-if (!class_exists('WebSocket\Client')) {
-    throw new Exception("phrity/websocket is required for examples. Run: composer require phrity/websocket");
-}
+/**
+ * OCPP 2.0.1 Charging Station (WebSocket client): connects to the example CSMS,
+ * sends a few Calls, prints the answers and exits.
+ *
+ *   php src/Examples/v201/CentralSystem.php &
+ *   php src/Examples/v201/ChargePoint.php [--uri=ws://127.0.0.1:8080]
+ *
+ * Needs phrity/websocket (composer require phrity/websocket).
+ */
 
 use SolutionForest\OcppPhp\Ocpp\JsonSchemaValidator;
-use SolutionForest\OcppPhp\Ocpp\v16\Calls;
+use SolutionForest\OcppPhp\Ocpp\Messages\Call;
+use SolutionForest\OcppPhp\Ocpp\v201\Calls\BootNotification;
+use SolutionForest\OcppPhp\Ocpp\v201\Calls\ClearCache;
+use SolutionForest\OcppPhp\Ocpp\v201\Calls\Heartbeat;
+use SolutionForest\OcppPhp\Ocpp\v201\Calls\StatusNotification;
+use SolutionForest\OcppPhp\Ocpp\v201\Enums\BootReason;
+use SolutionForest\OcppPhp\Ocpp\v201\Enums\ConnectorStatus;
+use WebSocket\Client;
+use WebSocket\Connection;
+use WebSocket\Exception\ExceptionInterface;
+use WebSocket\Message\Text;
+use WebSocket\Middleware\CloseHandler;
+use WebSocket\Middleware\PingResponder;
 
-function chargerPoingCallback($client)
-{
-    echo "Charge Point: Connected to Central System\n\n";
+require __DIR__.'/../../../vendor/autoload.php';
 
-    $boot = new Calls\BootNotification();
-    $boot->chargingStation = (object) [
-        'model' => 'MyModel',
-        'vendorName' => 'MyVendor'
-    ];
-    $boot->reason = BootReason::ApplicationReset->value;
+const OCPP_VERSION = 'v2.0.1';
 
-    $heartbeat = new Calls\Heartbeat();
-
-    $statusNotification = new Calls\StatusNotification();
-    $statusNotification->connectorId = 1;
-    $statusNotification->connectorStatus = 'Available';
-    $statusNotification->evseId = 1;
-    $statusNotification->timestamp = date('c');
-
-    $notImplemented = new Calls\ClearCache();
-
-    $messages = [
-        $boot,
-        $heartbeat,
-        $statusNotification,
-        $notImplemented
-    ];
-
-
-    $message = $messages[rand(0, count($messages) - 1)];
-
-    JsonSchemaValidator::validate($message, 'v2.0.1');
-    $message = $message->toArray();
-
-    echo "Charge Point: Sending message: " . json_encode($message) . "\n\n";
-    $client->text(json_encode($message));
+if (! class_exists(Client::class)) {
+    throw new Exception('phrity/websocket is required for examples. Run: composer require phrity/websocket');
 }
 
+/** @var list<Call> $calls */
+$calls = [
+    new BootNotification([
+        'reason' => BootReason::PowerUp,
+        'chargingStation' => ['model' => 'MyModel', 'vendorName' => 'MyVendor'],
+    ]),
+    new Heartbeat(),
+    new StatusNotification([
+        'timestamp' => date('c'),
+        'connectorStatus' => ConnectorStatus::Available,
+        'evseId' => 1,
+        'connectorId' => 1,
+    ]),
+    // Not handled by the example CSMS: it answers with a CALLERROR (NotImplemented).
+    new ClearCache(),
+];
+$pending = count($calls);
 
-echo "# Random client\n";
+$options = getopt('', ['uri:']);
+$uri = is_string($options['uri'] ?? null) ? $options['uri'] : 'ws://127.0.0.1:8080';
 
-// Initiate client.
-while (true) {
-    // Server options specified or random
-    $options = array_merge([
-        'uri' => 'ws://127.0.0.1:8080',
-        'timeout' => rand(1, 60),
-        'framesize' => rand(1, 4096) * 8,
-    ], getopt('', ['uri:', 'timeout:', 'framesize:', 'debug']));
+$client = new Client($uri);
+$client
+    ->addMiddleware(new CloseHandler())
+    ->addMiddleware(new PingResponder());
 
-    try {
-        $client = new WebSocket\Client($options['uri']);
-        $client
-            ->addMiddleware(new \WebSocket\Middleware\CloseHandler())
-            ->addMiddleware(new \WebSocket\Middleware\PingResponder())
-        ;
+$client
+    ->onHandshake(function (Client $client) use ($calls): void {
+        echo "Charging Station: connected\n";
 
-        // If debug mode and logger is available
-        if (isset($options['debug']) && class_exists('WebSocket\Test\EchoLog')) {
-            $client->setLogger(new \WebSocket\Test\EchoLog());
-            echo "# Using logger\n";
+        foreach ($calls as $call) {
+            JsonSchemaValidator::validate($call, OCPP_VERSION);
+            $json = (string) json_encode($call->toArray());
+
+            echo "Charging Station -> CSMS: {$json}\n";
+            $client->text($json);
         }
-        if (isset($options['timeout'])) {
-            $client->setTimeout($options['timeout']);
-            echo "# Set timeout: {$options['timeout']}\n";
+    })
+    ->onText(function (Client $client, Connection $connection, Text $message) use (&$pending): void {
+        echo "CSMS -> Charging Station: {$message->getContent()}\n";
+
+        if (--$pending === 0) {
+            $client->close();
+            $client->stop();
         }
-        if (isset($options['framesize'])) {
-            $client->setFrameSize($options['framesize']);
-            echo "# Set frame size: {$options['framesize']}\n";
-        }
-
-        echo "# Listening on {$options['uri']}\n";
-        $client->onHandshake(function ($server, $connection, $request, $response) {
-            echo "> [{$connection->getRemoteName()}] Server connected {$response->getStatusCode()}\n";
-            chargerPoingCallback($server);
-        })->onDisconnect(function ($client, $connection) {
-            echo "> [{$connection->getRemoteName()}] Server disconnected\n";
-        })->onText(function ($client, $connection, $message) {
-            echo "> [{$connection->getRemoteName()}] Received [{$message->getOpcode()}] {$message->getContent()}\n";
-            echo "Charge Point: Received message\n\n";
-        })->onBinary(function ($client, $connection, $message) {
-            echo "> [{$connection->getRemoteName()}] Received [{$message->getOpcode()}]\n";
-        })->onPing(function ($client, $connection, $message) {
-            echo "> [{$connection->getRemoteName()}] Received [{$message->getOpcode()}]\n";
-        })->onPong(function ($client, $connection, $message) {
-            echo "> [{$connection->getRemoteName()}] Received [{$message->getOpcode()}]\n";
-        })->onClose(function ($client, $connection, $message) {
-            echo "> [{$connection->getRemoteName()}] Received [{$message->getOpcode()}] {$message->getCloseStatus()}\n";
-        })->onError(function ($client, $connection, $exception) {
-            $name = $connection ? "[{$connection->getRemoteName()}]" : "[-]";
-            echo "> {$name} Error: {$exception->getMessage()}\n";
-        })->start();
-
-
-    } catch (Throwable $e) {
-        echo "> ERROR: {$e->getMessage()}\n";
-    }
-}
+    })
+    ->onError(function (Client $client, ?Connection $connection, ExceptionInterface $exception): void {
+        echo "Charging Station: error: {$exception->getMessage()}\n";
+        $client->stop();
+    })
+    ->start();

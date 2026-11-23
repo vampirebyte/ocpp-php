@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\CallResults;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -9,8 +11,11 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\GetInstalledCertificateStatus;
 
 class GetInstalledCertificateIds extends CallResult
 {
-	/** @var list<CertificateHashDataType>|null */
-	#[ListOf(CertificateHashDataType::class)]
-	public ?array $certificateHashData = null;
-	public string|GetInstalledCertificateStatus $status;
+    /**
+     * @var list<CertificateHashDataType>|null
+     */
+    #[ListOf(CertificateHashDataType::class)]
+    public ?array $certificateHashData = null;
+
+    public string|GetInstalledCertificateStatus $status;
 }

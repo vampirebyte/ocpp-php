@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum Attribute: string
 {
-	case Actual = 'Actual';
-	case Target = 'Target';
-	case MinSet = 'MinSet';
-	case MaxSet = 'MaxSet';
+    case Actual = 'Actual';
+    case Target = 'Target';
+    case MinSet = 'MinSet';
+    case MaxSet = 'MaxSet';
 }

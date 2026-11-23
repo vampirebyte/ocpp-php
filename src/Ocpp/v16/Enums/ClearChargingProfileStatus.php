@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
 
 /**
@@ -7,6 +9,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ClearChargingProfileStatus: string
 {
-	case Accepted = 'Accepted';
-	case Unknown = 'Unknown';
+    case Accepted = 'Accepted';
+    case Unknown = 'Unknown';
 }

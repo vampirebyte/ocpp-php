@@ -1,14 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class StartTransaction extends Call
 {
-	public int $connectorId;
-	public string $idTag;
-	public int $meterStart;
-	public ?int $reservationId = null;
-	public string $timestamp;
+    public int $connectorId;
+
+    public string $idTag;
+
+    public int $meterStart;
+
+    public ?int $reservationId = null;
+
+    public string $timestamp;
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
 
 /**
@@ -7,9 +9,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ConnectorStatus: string
 {
-	case Available = 'Available';
-	case Occupied = 'Occupied';
-	case Reserved = 'Reserved';
-	case Unavailable = 'Unavailable';
-	case Faulted = 'Faulted';
+    case Available = 'Available';
+    case Occupied = 'Occupied';
+    case Reserved = 'Reserved';
+    case Unavailable = 'Unavailable';
+    case Faulted = 'Faulted';
 }

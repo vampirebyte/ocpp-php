@@ -1,7 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp;
 
+use ReflectionNamedType;
+use ReflectionProperty;
+use ReflectionUnionType;
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
 
 /**
@@ -13,27 +18,34 @@ use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
  */
 trait HydratesProperties
 {
+    /**
+     * @param  array<mixed>|null  $data
+     */
     protected function fill(?array $data): void
     {
         foreach ($data ?? [] as $key => $value) {
-            $this->setPayloadProperty($key, $value);
+            // Integer keys (a JSON array instead of an object) match no property and are skipped.
+            $this->setPayloadProperty((string) $key, $value);
         }
     }
 
     protected function setPayloadProperty(string $key, mixed $value): void
     {
-        if (!property_exists($this, $key)) {
+        if (! property_exists($this, $key)) {
             return;
         }
 
         if (is_array($value)) {
-            $value = self::hydrate(new \ReflectionProperty($this, $key), $value);
+            $value = self::hydrate(new ReflectionProperty($this, $key), $value);
         }
 
         $this->$key = $value;
     }
 
-    private static function hydrate(\ReflectionProperty $property, array $value): mixed
+    /**
+     * @param  array<mixed>  $value
+     */
+    private static function hydrate(ReflectionProperty $property, array $value): mixed
     {
         $listOf = $property->getAttributes(ListOf::class)[0] ?? null;
         if ($listOf !== null) {
@@ -46,10 +58,10 @@ trait HydratesProperties
         }
 
         $type = $property->getType();
-        $types = $type instanceof \ReflectionUnionType ? $type->getTypes() : [$type];
+        $types = $type instanceof ReflectionUnionType ? $type->getTypes() : [$type];
 
         foreach ($types as $named) {
-            if (!$named instanceof \ReflectionNamedType) {
+            if (! $named instanceof ReflectionNamedType) {
                 continue;
             }
 
@@ -57,6 +69,7 @@ trait HydratesProperties
             if (is_subclass_of($name, Datatype::class)) {
                 return new $name($value);
             }
+
             if ($name === 'object') {
                 return (object) $value;
             }

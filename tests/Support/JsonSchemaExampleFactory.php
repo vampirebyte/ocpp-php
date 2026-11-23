@@ -2,13 +2,21 @@
 
 declare(strict_types=1);
 
+/**
+ * Builds a minimal valid payload for a JSON schema: every required property, with the
+ * first enum value, the minimum number or a short string of the allowed length.
+ */
 final class JsonSchemaExampleFactory
 {
+    /**
+     * @param  array<mixed>  $schema
+     * @return array<mixed>
+     */
     public static function createPayload(array $schema): array
     {
         $payload = self::createValue($schema, $schema, []);
 
-        if (!is_array($payload)) {
+        if (! is_array($payload)) {
             throw new RuntimeException('Expected root payload to be represented as an array.');
         }
 
@@ -16,7 +24,9 @@ final class JsonSchemaExampleFactory
     }
 
     /**
-     * @param list<string> $refStack
+     * @param  array<mixed>  $schema
+     * @param  array<mixed>  $rootSchema
+     * @param  list<string>  $refStack
      */
     private static function createValue(array $schema, array $rootSchema, array $refStack): mixed
     {
@@ -57,6 +67,9 @@ final class JsonSchemaExampleFactory
         };
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function detectType(array $schema): string
     {
         $type = $schema['type'] ?? null;
@@ -81,37 +94,43 @@ final class JsonSchemaExampleFactory
     }
 
     /**
-     * @param list<string> $refStack
+     * @param  array<mixed>  $schema
+     * @param  array<mixed>  $rootSchema
+     * @param  list<string>  $refStack
      * @return array<string, mixed>
      */
     private static function createObject(array $schema, array $rootSchema, array $refStack): array
     {
-        $properties = $schema['properties'] ?? [];
-        $required = $schema['required'] ?? [];
+        $properties = is_array($schema['properties'] ?? null) ? $schema['properties'] : [];
+        $required = is_array($schema['required'] ?? null) ? $schema['required'] : [];
         $value = [];
 
         foreach ($required as $propertyName) {
-            if (!is_string($propertyName) || !array_key_exists($propertyName, $properties) || !is_array($properties[$propertyName])) {
-                throw new RuntimeException("Required property {$propertyName} is missing from the schema definition.");
+            $propertySchema = is_string($propertyName) ? ($properties[$propertyName] ?? null) : null;
+
+            if (! is_string($propertyName) || ! is_array($propertySchema)) {
+                throw new RuntimeException('Required property '.json_encode($propertyName).' is missing from the schema definition.');
             }
 
-            $value[$propertyName] = self::createValue($properties[$propertyName], $rootSchema, $refStack);
+            $value[$propertyName] = self::createValue($propertySchema, $rootSchema, $refStack);
         }
 
         return $value;
     }
 
     /**
-     * @param list<string> $refStack
+     * @param  array<mixed>  $schema
+     * @param  array<mixed>  $rootSchema
+     * @param  list<string>  $refStack
      * @return list<mixed>
      */
     private static function createArray(array $schema, array $rootSchema, array $refStack): array
     {
-        if (!isset($schema['items'])) {
+        if (! isset($schema['items'])) {
             return [];
         }
 
-        $count = max(1, (int) ($schema['minItems'] ?? 0));
+        $count = max(1, self::integer($schema['minItems'] ?? null) ?? 0);
         $items = $schema['items'];
         $value = [];
 
@@ -122,7 +141,7 @@ final class JsonSchemaExampleFactory
                 $itemSchema = $items;
             }
 
-            if (!is_array($itemSchema)) {
+            if (! is_array($itemSchema)) {
                 throw new RuntimeException('Array item schema must be an array.');
             }
 
@@ -132,6 +151,9 @@ final class JsonSchemaExampleFactory
         return $value;
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function createString(array $schema): string
     {
         $format = $schema['format'] ?? null;
@@ -144,7 +166,7 @@ final class JsonSchemaExampleFactory
             default => str_repeat('x', self::resolveStringLength($schema)),
         };
 
-        $maxLength = isset($schema['maxLength']) ? (int) $schema['maxLength'] : null;
+        $maxLength = self::integer($schema['maxLength'] ?? null);
         if ($maxLength !== null && strlen($value) > $maxLength && $format === null) {
             $value = substr($value, 0, $maxLength);
         }
@@ -152,16 +174,25 @@ final class JsonSchemaExampleFactory
         return $value;
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function createInteger(array $schema): int
     {
         return (int) round(self::createNumericValue($schema, true));
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function createNumber(array $schema): float
     {
         return round(self::createNumericValue($schema, false), 6);
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function createNumericValue(array $schema, bool $integer): float
     {
         $minimum = self::resolveMinimum($schema, $integer);
@@ -191,6 +222,9 @@ final class JsonSchemaExampleFactory
         return $value;
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function resolveMinimum(array $schema, bool $integer): ?float
     {
         $minimum = isset($schema['minimum']) && is_numeric($schema['minimum'])
@@ -199,6 +233,7 @@ final class JsonSchemaExampleFactory
 
         if (isset($schema['exclusiveMinimum']) && is_numeric($schema['exclusiveMinimum'])) {
             $exclusiveMinimum = (float) $schema['exclusiveMinimum'];
+
             return $integer ? $exclusiveMinimum + 1.0 : $exclusiveMinimum + 0.1;
         }
 
@@ -209,6 +244,9 @@ final class JsonSchemaExampleFactory
         return $minimum;
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function resolveMaximum(array $schema, bool $integer): ?float
     {
         $maximum = isset($schema['maximum']) && is_numeric($schema['maximum'])
@@ -217,6 +255,7 @@ final class JsonSchemaExampleFactory
 
         if (isset($schema['exclusiveMaximum']) && is_numeric($schema['exclusiveMaximum'])) {
             $exclusiveMaximum = (float) $schema['exclusiveMaximum'];
+
             return $integer ? $exclusiveMaximum - 1.0 : $exclusiveMaximum - 0.1;
         }
 
@@ -227,10 +266,13 @@ final class JsonSchemaExampleFactory
         return $maximum;
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function resolveStringLength(array $schema): int
     {
-        $minLength = max(0, (int) ($schema['minLength'] ?? 0));
-        $maxLength = isset($schema['maxLength']) ? (int) $schema['maxLength'] : null;
+        $minLength = max(0, self::integer($schema['minLength'] ?? null) ?? 0);
+        $maxLength = self::integer($schema['maxLength'] ?? null);
         $length = max(1, $minLength);
 
         if ($maxLength !== null) {
@@ -240,6 +282,9 @@ final class JsonSchemaExampleFactory
         return max(0, $length);
     }
 
+    /**
+     * @param  array<mixed>  $schema
+     */
     private static function createCyclicFallback(array $schema): mixed
     {
         return match (self::detectType($schema)) {
@@ -253,9 +298,13 @@ final class JsonSchemaExampleFactory
         };
     }
 
+    /**
+     * @param  array<mixed>  $rootSchema
+     * @return array<mixed>
+     */
     private static function resolveRef(array $rootSchema, string $ref): array
     {
-        if (!str_starts_with($ref, '#/')) {
+        if (! str_starts_with($ref, '#/')) {
             throw new RuntimeException("Only internal schema references are supported: {$ref}");
         }
 
@@ -265,17 +314,25 @@ final class JsonSchemaExampleFactory
         foreach ($segments as $segment) {
             $segment = str_replace(['~1', '~0'], ['/', '~'], $segment);
 
-            if (!is_array($current) || !array_key_exists($segment, $current)) {
+            if (! is_array($current) || ! array_key_exists($segment, $current)) {
                 throw new RuntimeException("Unable to resolve schema reference {$ref}");
             }
 
             $current = $current[$segment];
         }
 
-        if (!is_array($current)) {
+        if (! is_array($current)) {
             throw new RuntimeException("Resolved schema reference {$ref} is not an object schema.");
         }
 
         return $current;
+    }
+
+    /**
+     * A numeric schema keyword (e.g. "maxLength") as an int, or null when absent.
+     */
+    private static function integer(mixed $value): ?int
+    {
+        return is_numeric($value) ? (int) $value : null;
     }
 }

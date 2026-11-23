@@ -1,16 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\CallResults;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\CallResult;
 
 class Heartbeat extends CallResult
 {
-	/**
-	 * Contains the current time of the CSMS.
-	 */
-	public string $currentTime;
+    /**
+     * Contains the current time of the CSMS.
+     */
+    public string $currentTime;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /**
+     * This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data.
+     */
+    public ?object $customData = null;
 }

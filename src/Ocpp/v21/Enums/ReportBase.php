@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ReportBase: string
 {
-	case ConfigurationInventory = 'ConfigurationInventory';
-	case FullInventory = 'FullInventory';
-	case SummaryInventory = 'SummaryInventory';
+    case ConfigurationInventory = 'ConfigurationInventory';
+    case FullInventory = 'FullInventory';
+    case SummaryInventory = 'SummaryInventory';
 }

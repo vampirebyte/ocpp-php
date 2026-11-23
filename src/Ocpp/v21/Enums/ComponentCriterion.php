@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ComponentCriterion: string
 {
-	case Active = 'Active';
-	case Available = 'Available';
-	case Enabled = 'Enabled';
-	case Problem = 'Problem';
+    case Active = 'Active';
+    case Available = 'Available';
+    case Enabled = 'Enabled';
+    case Problem = 'Problem';
 }

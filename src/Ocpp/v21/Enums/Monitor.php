@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,11 +9,11 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum Monitor: string
 {
-	case UpperThreshold = 'UpperThreshold';
-	case LowerThreshold = 'LowerThreshold';
-	case Delta = 'Delta';
-	case Periodic = 'Periodic';
-	case PeriodicClockAligned = 'PeriodicClockAligned';
-	case TargetDelta = 'TargetDelta';
-	case TargetDeltaRelative = 'TargetDeltaRelative';
+    case UpperThreshold = 'UpperThreshold';
+    case LowerThreshold = 'LowerThreshold';
+    case Delta = 'Delta';
+    case Periodic = 'Periodic';
+    case PeriodicClockAligned = 'PeriodicClockAligned';
+    case TargetDelta = 'TargetDelta';
+    case TargetDeltaRelative = 'TargetDeltaRelative';
 }

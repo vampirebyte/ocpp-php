@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum APNAuthentication: string
 {
-	case PAP = 'PAP';
-	case CHAP = 'CHAP';
-	case NONE = 'NONE';
-	case AUTO = 'AUTO';
+    case PAP = 'PAP';
+    case CHAP = 'CHAP';
+    case NONE = 'NONE';
+    case AUTO = 'AUTO';
 }

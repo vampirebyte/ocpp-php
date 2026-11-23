@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum PaymentStatus: string
 {
-	case Settled = 'Settled';
-	case Canceled = 'Canceled';
-	case Rejected = 'Rejected';
-	case Failed = 'Failed';
+    case Settled = 'Settled';
+    case Canceled = 'Canceled';
+    case Rejected = 'Rejected';
+    case Failed = 'Failed';
 }

@@ -5,6 +5,8 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use SolutionForest\OcppPhp\Ocpp\JsonSchemaRegistry;
 use SolutionForest\OcppPhp\Ocpp\JsonSchemaValidator;
+use SolutionForest\OcppPhp\Ocpp\v201\CallResults\TransactionEvent as TransactionEventResult;
+use SolutionForest\OcppPhp\Ocpp\v201\Calls\CostUpdated;
 
 /**
  * JSON schema "number" properties accept decimals, so they must be typed as float.
@@ -14,7 +16,7 @@ final class DecimalNumberTest extends TestCase
 {
     public function test_v201_cost_updated_keeps_decimal_total_cost(): void
     {
-        $call = new \SolutionForest\OcppPhp\Ocpp\v201\Calls\CostUpdated([
+        $call = new CostUpdated([
             'totalCost' => 12.75,
             'transactionId' => 'tx-1',
         ]);
@@ -26,18 +28,19 @@ final class DecimalNumberTest extends TestCase
 
     public function test_v201_transaction_event_result_keeps_decimal_total_cost_from_wire(): void
     {
-        $result = (new JsonSchemaRegistry())->createFromArray(
+        $result = new JsonSchemaRegistry()->createFromArray(
             [3, 'tx-evt-1', ['totalCost' => 3.4]],
             'v2.0.1',
             'TransactionEvent',
         );
 
+        self::assertInstanceOf(TransactionEventResult::class, $result);
         self::assertSame(3.4, $result->totalCost);
     }
 
     public function test_v21_cost_updated_keeps_decimal_total_cost(): void
     {
-        $call = new \SolutionForest\OcppPhp\Ocpp\v21\Calls\CostUpdated([
+        $call = new SolutionForest\OcppPhp\Ocpp\v21\Calls\CostUpdated([
             'totalCost' => 12.75,
             'transactionId' => 'tx-1',
         ]);
@@ -48,7 +51,7 @@ final class DecimalNumberTest extends TestCase
 
     public function test_whole_numbers_are_still_accepted(): void
     {
-        $call = new \SolutionForest\OcppPhp\Ocpp\v201\Calls\CostUpdated([
+        $call = new CostUpdated([
             'totalCost' => 12,
             'transactionId' => 'tx-1',
         ]);

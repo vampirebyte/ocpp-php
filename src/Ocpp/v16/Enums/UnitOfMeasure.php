@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
 
 /**
@@ -7,22 +9,22 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum UnitOfMeasure: string
 {
-	case Wh = 'Wh';
-	case kWh = 'kWh';
-	case varh = 'varh';
-	case kvarh = 'kvarh';
-	case W = 'W';
-	case kW = 'kW';
-	case VA = 'VA';
-	case kVA = 'kVA';
-	case var = 'var';
-	case kvar = 'kvar';
-	case A = 'A';
-	case V = 'V';
-	case K = 'K';
-	case Celcius = 'Celcius';
-	case Celsius = 'Celsius';
-	case Fahrenheit = 'Fahrenheit';
-	case Percent = 'Percent';
-	case Hertz = 'Hertz';
+    case Wh = 'Wh';
+    case kWh = 'kWh';
+    case varh = 'varh';
+    case kvarh = 'kvarh';
+    case W = 'W';
+    case kW = 'kW';
+    case VA = 'VA';
+    case kVA = 'kVA';
+    case var = 'var';
+    case kvar = 'kvar';
+    case A = 'A';
+    case V = 'V';
+    case K = 'K';
+    case Celcius = 'Celcius';
+    case Celsius = 'Celsius';
+    case Fahrenheit = 'Fahrenheit';
+    case Percent = 'Percent';
+    case Hertz = 'Hertz';
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
 
 /**
@@ -7,8 +9,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum CertificateStatus: string
 {
-	case Good = 'Good';
-	case Revoked = 'Revoked';
-	case Unknown = 'Unknown';
-	case Failed = 'Failed';
+    case Good = 'Good';
+    case Revoked = 'Revoked';
+    case Unknown = 'Unknown';
+    case Failed = 'Failed';
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
 
 /**
@@ -7,7 +9,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum LogStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case AcceptedCanceled = 'AcceptedCanceled';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case AcceptedCanceled = 'AcceptedCanceled';
 }

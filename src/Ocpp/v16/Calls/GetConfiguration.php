@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class GetConfiguration extends Call
 {
-	public ?array $key = null;
+    /**
+     * @var list<string>|null
+     */
+    public ?array $key = null;
 }

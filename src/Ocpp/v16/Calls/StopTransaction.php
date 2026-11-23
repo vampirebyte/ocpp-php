@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v16\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -9,13 +11,19 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\Reason;
 
 class StopTransaction extends Call
 {
-	public ?string $idTag = null;
-	public int $meterStop;
-	public string $timestamp;
-	public int $transactionId;
-	public null|string|Reason $reason = null;
+    public ?string $idTag = null;
 
-	/** @var list<MeterValue>|null */
-	#[ListOf(MeterValue::class)]
-	public ?array $transactionData = null;
+    public int $meterStop;
+
+    public string $timestamp;
+
+    public int $transactionId;
+
+    public null|string|Reason $reason = null;
+
+    /**
+     * @var list<MeterValue>|null
+     */
+    #[ListOf(MeterValue::class)]
+    public ?array $transactionData = null;
 }

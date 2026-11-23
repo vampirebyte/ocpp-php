@@ -8,6 +8,11 @@ use SolutionForest\OcppPhp\Ocpp\JsonSchemaValidator;
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 use SolutionForest\OcppPhp\Ocpp\Messages\CallResult;
 use SolutionForest\OcppPhp\Ocpp\Messages\Message;
+use SolutionForest\OcppPhp\Ocpp\v16\CallResults\GetConfiguration;
+use SolutionForest\OcppPhp\Ocpp\v16\Calls\DataTransfer;
+use SolutionForest\OcppPhp\Ocpp\v201\CallResults\Authorize;
+use SolutionForest\OcppPhp\Ocpp\v201\Calls\BootNotification;
+use SolutionForest\OcppPhp\Ocpp\v201\Calls\Heartbeat;
 
 /**
  * Optional (non-required) properties of generated Calls and CallResults default to null,
@@ -21,44 +26,44 @@ final class OptionalPropertiesTest extends TestCase
     public static function provideMessagesWithAbsentOptionals(): iterable
     {
         yield 'v1.6 GetConfiguration result' => [
-            new \SolutionForest\OcppPhp\Ocpp\v16\CallResults\GetConfiguration('id-1', []),
+            new GetConfiguration('id-1', []),
             'v1.6',
             ['configurationKey', 'unknownKey'],
         ];
 
         yield 'v1.6 DataTransfer call' => [
-            new \SolutionForest\OcppPhp\Ocpp\v16\Calls\DataTransfer(['vendorId' => 'Acme']),
+            new DataTransfer(['vendorId' => 'Acme']),
             'v1.6',
             ['messageId', 'data'],
         ];
 
         yield 'v2.0.1 Authorize result' => [
-            new \SolutionForest\OcppPhp\Ocpp\v201\CallResults\Authorize('id-2', ['idTokenInfo' => ['status' => 'Accepted']]),
+            new Authorize('id-2', ['idTokenInfo' => ['status' => 'Accepted']]),
             'v2.0.1',
             ['customData', 'certificateStatus'],
         ];
 
         yield 'v2.0.1 Heartbeat call' => [
-            new \SolutionForest\OcppPhp\Ocpp\v201\Calls\Heartbeat(),
+            new Heartbeat(),
             'v2.0.1',
             ['customData'],
         ];
 
         yield 'v2.1 Authorize result' => [
-            new \SolutionForest\OcppPhp\Ocpp\v21\CallResults\Authorize('id-3', ['idTokenInfo' => ['status' => 'Accepted']]),
+            new SolutionForest\OcppPhp\Ocpp\v21\CallResults\Authorize('id-3', ['idTokenInfo' => ['status' => 'Accepted']]),
             'v2.1',
             ['certificateStatus', 'allowedEnergyTransfer', 'tariff', 'customData'],
         ];
 
         yield 'v2.1 DataTransfer call' => [
-            new \SolutionForest\OcppPhp\Ocpp\v21\Calls\DataTransfer(['vendorId' => 'Acme']),
+            new SolutionForest\OcppPhp\Ocpp\v21\Calls\DataTransfer(['vendorId' => 'Acme']),
             'v2.1',
             ['messageId', 'data', 'customData'],
         ];
     }
 
     /**
-     * @param list<string> $optionals
+     * @param  list<string>  $optionals
      */
     #[DataProvider('provideMessagesWithAbsentOptionals')]
     public function test_absent_optional_properties_read_as_null(Message $message, string $version, array $optionals): void
@@ -69,10 +74,10 @@ final class OptionalPropertiesTest extends TestCase
     }
 
     /**
-     * @param list<string> $optionals
+     * @param  list<string>  $optionals
      */
     #[DataProvider('provideMessagesWithAbsentOptionals')]
-    public function test_absent_optional_properties_are_omitted_from_payload(Message $message, string $version, array $optionals): void
+    public function test_absent_optional_properties_are_omitted_from_payload(Call|CallResult $message, string $version, array $optionals): void
     {
         $payload = (array) $message->getPayload();
 
@@ -85,14 +90,14 @@ final class OptionalPropertiesTest extends TestCase
 
     public function test_optional_property_explicitly_set_to_null_is_omitted(): void
     {
-        $call = new \SolutionForest\OcppPhp\Ocpp\v201\Calls\BootNotification([
+        $call = new BootNotification([
             'reason' => 'PowerUp',
             'chargingStation' => ['model' => 'M1', 'vendorName' => 'Acme'],
         ]);
         $call->customData = null;
 
         self::assertSame(
-            '[2,"' . $call->uniqueId . '","BootNotification",{"chargingStation":{"model":"M1","vendorName":"Acme"},"reason":"PowerUp"}]',
+            '[2,"'.$call->uniqueId.'","BootNotification",{"chargingStation":{"model":"M1","vendorName":"Acme"},"reason":"PowerUp"}]',
             json_encode($call->toArray()),
         );
         self::assertTrue(JsonSchemaValidator::validate($call, 'v2.0.1'));
@@ -100,7 +105,7 @@ final class OptionalPropertiesTest extends TestCase
 
     public function test_set_optional_values_are_still_serialized(): void
     {
-        $result = new \SolutionForest\OcppPhp\Ocpp\v201\CallResults\Authorize('id-4', [
+        $result = new Authorize('id-4', [
             'idTokenInfo' => ['status' => 'Accepted'],
             'certificateStatus' => 'Accepted',
         ]);
@@ -114,9 +119,8 @@ final class OptionalPropertiesTest extends TestCase
 
     public function test_required_properties_have_no_default(): void
     {
-        $property = new \ReflectionProperty(\SolutionForest\OcppPhp\Ocpp\v201\Calls\BootNotification::class, 'reason');
+        $property = new ReflectionProperty(BootNotification::class, 'reason');
 
         self::assertFalse($property->hasDefaultValue(), 'required properties must stay uninitialized until set');
-        self::assertTrue(is_subclass_of(\SolutionForest\OcppPhp\Ocpp\v201\Calls\BootNotification::class, Call::class));
     }
 }
