@@ -1,0 +1,13 @@
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+
+parameters:
+    paths:
+        - src/Ocpp/v16
+        - src/Ocpp/v201
+        - src/Ocpp/v21
+    excludePaths:
+        - src/Ocpp/v16/Enums/MessageTypeId.php
+        - src/Ocpp/v201/Enums/MessageTypeId.php
+    level: max
+    tmpDir: tmp/phpstan

@@ -22,6 +22,8 @@ class SetDERControl extends CallResult
 
     /**
      * List of controlIds that are superseded as a result of setting this control.
+     *
+     * @var list<string>|null
      */
     public ?array $supersededIds = null;
 

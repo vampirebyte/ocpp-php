@@ -23,10 +23,14 @@ class TariffAssignmentType extends Datatype
      * Date/time when this tariff become active.
      */
     public ?string $validFrom = null;
+
+    /** @var list<int>|null */
     public ?array $evseIds = null;
 
     /**
      * IdTokens related to tariff
+     *
+     * @var list<string>|null
      */
     public ?array $idTokens = null;
 

@@ -51,6 +51,8 @@ class ChargingNeedsType extends Datatype
 
     /**
      * *(2.1)* Modes of energy transfer that are marked as available by EV.
+     *
+     * @var list<string>|null
      */
     public ?array $availableEnergyTransfer = null;
 

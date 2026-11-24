@@ -40,6 +40,9 @@ class IdTokenInfoType extends Datatype
 
     /**
      * Only used when the IdToken is only valid for one or more specific EVSEs, not for the entire Charging Station.
+     *
+     *
+     * @var list<int>|null
      */
     public ?array $evseId = null;
 

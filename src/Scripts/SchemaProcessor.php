@@ -310,6 +310,8 @@ abstract class SchemaProcessor
             if ($resolved['listOf'] !== null) {
                 // Resolved to a short name and documented by handleUseStatements().
                 $classProperty->addAttribute(ListOf::class, [new Literal($resolved['listOf'] . '::class')]);
+            } elseif ($resolved['itemType'] !== null) {
+                $classProperty->addComment("@var list<{$resolved['itemType']}>" . ($required ? '' : '|null'));
             }
 
             // Optional properties default to null, so reading an absent field returns null
@@ -324,12 +326,13 @@ abstract class SchemaProcessor
     }
 
     /**
-     * @return array{type: ?string, enum: ?string, datatype: ?string, listOf: ?string, description: string}
-     *         type: JSON schema type; enum/datatype/listOf: fully qualified class names.
+     * @return array{type: ?string, enum: ?string, datatype: ?string, listOf: ?string, itemType: ?string, description: string}
+     *         type: JSON schema type; enum/datatype/listOf: fully qualified class names;
+     *         itemType: PHP type of the items of an array that is not a list of Datatypes.
      */
     private function resolvePropertyType(array $definition, array $schemaContent, ?string $schemaName, string $path): array
     {
-        $resolved = ['type' => null, 'enum' => null, 'datatype' => null, 'listOf' => null, 'description' => ''];
+        $resolved = ['type' => null, 'enum' => null, 'datatype' => null, 'listOf' => null, 'itemType' => null, 'description' => ''];
 
         if (isset($definition['$ref'])) {
             $ref = $this->refName($definition['$ref']);
@@ -359,11 +362,16 @@ abstract class SchemaProcessor
             $items = $definition['items'];
             if (isset($items['$ref'])) {
                 $ref = $this->refName($items['$ref']);
-                if ($this->isDatatypeDefinition($ref, $schemaContent['definitions'][$ref] ?? [])) {
+                $refDefinition = $schemaContent['definitions'][$ref] ?? [];
+                if ($this->isDatatypeDefinition($ref, $refDefinition)) {
                     $resolved['listOf'] = $this->classIn('Datatypes', $ref);
+                } else {
+                    $resolved['itemType'] = self::scalarItemType($refDefinition['type'] ?? null);
                 }
             } elseif (isset($items['properties'])) {
                 $resolved['listOf'] = $this->classIn('Datatypes', $this->inlineObjectName($schemaName, $path));
+            } else {
+                $resolved['itemType'] = self::scalarItemType($items['type'] ?? null);
             }
         } elseif (isset($definition['properties'])) {
             $resolved['datatype'] = $this->classIn('Datatypes', $this->inlineObjectName($schemaName, $path));
@@ -479,6 +487,20 @@ abstract class SchemaProcessor
         }
 
         return $namespace;
+    }
+
+    /**
+     * PHP type of an array item that is not a Datatype, from its JSON schema type.
+     */
+    private static function scalarItemType(?string $type): string
+    {
+        return match ($type) {
+            'string' => 'string',
+            'integer' => 'int',
+            'number' => 'float',
+            'boolean' => 'bool',
+            default => 'mixed',
+        };
     }
 
     protected function mapSchemaTypeToPhp(?string $type, bool $required)

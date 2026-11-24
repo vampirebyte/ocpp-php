@@ -26,6 +26,9 @@ class NotifyDERStartStop extends Call
 
     /**
      * List of controlIds that are superseded as a result of this control starting.
+     *
+     *
+     * @var list<string>|null
      */
     public ?array $supersededIds = null;
 

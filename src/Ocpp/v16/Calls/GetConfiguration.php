@@ -8,5 +8,6 @@ use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class GetConfiguration extends Call
 {
+    /** @var list<string>|null */
     public ?array $key = null;
 }

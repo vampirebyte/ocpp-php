@@ -26,6 +26,10 @@ class Authorize extends CallResult
 
     /**
      * *(2.1)* List of allowed energy transfer modes the EV can choose from. If omitted this defaults to charging only.
+     *
+     *
+     *
+     * @var list<string>|null
      */
     public ?array $allowedEnergyTransfer = null;
 

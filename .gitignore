@@ -2,3 +2,6 @@
 .phpunit.cache/
 *.py
 *copy.php
+
+# PHPStan cache (tmpDir in phpstan.neon)
+/tmp/

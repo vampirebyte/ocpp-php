@@ -31,10 +31,12 @@ class SchemaToInterface extends SchemaProcessor
     {
         foreach ($classes as $class) {
             echo "Processing {$class}\n";
-            $this->interface->addMethod('handle' . $class)->setStatic()
+            $method = $this->interface->addMethod('handle' . $class)->setStatic()
                 ->setPublic()
                 ->setReturnType('array')
-                ->addParameter('message')->setType('array');
+                ->addComment('@param array<mixed> $message')
+                ->addComment('@return array<mixed>');
+            $method->addParameter('message')->setType('array');
         }
     }
 

@@ -33,6 +33,8 @@ class Get15118EVCertificate extends Call
 
     /**
      * *(2.1)*  Absent during ISO 15118-2 session. Optional during ISO 15118-20 session. List of EMAIDs for which contract certificates must be requested first, in case there are more certificates than allowed by _maximumContractCertificateChains_.
+     *
+     * @var list<string>|null
      */
     public ?array $prioritizedEMAIDs = null;
 

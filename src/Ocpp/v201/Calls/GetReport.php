@@ -24,6 +24,8 @@ class GetReport extends Call
 
     /**
      * This field contains criteria for components for which a report is requested
+     *
+     * @var list<string>|null
      */
     public ?array $componentCriteria = null;
 }

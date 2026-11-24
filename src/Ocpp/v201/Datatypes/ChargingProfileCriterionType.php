@@ -28,11 +28,16 @@ class ChargingProfileCriterionType extends Datatype
 
     /**
      * List of all the chargingProfileIds requested. Any ChargingProfile that matches one of these profiles will be reported. If omitted, the Charging Station SHALL not filter on chargingProfileId. This field SHALL NOT contain more ids than set in <<configkey-charging-profile-entries,ChargingProfileEntries.maxLimit>>
+     *
+     *
+     * @var list<int>|null
      */
     public ?array $chargingProfileId = null;
 
     /**
      * For which charging limit sources, charging profiles SHALL be reported. If omitted, the Charging Station SHALL not filter on chargingLimitSource.
+     *
+     * @var list<string>|null
      */
     public ?array $chargingLimitSource = null;
 }

@@ -13,6 +13,8 @@ class GetInstalledCertificateIds extends Call
 
     /**
      * Indicates the type of certificates requested. When omitted, all certificate types are requested.
+     *
+     * @var list<string>|null
      */
     public ?array $certificateType = null;
 }

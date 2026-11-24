@@ -13,5 +13,7 @@ class GetConfiguration extends CallResult
     /** @var list<KeyValue>|null */
     #[ListOf(KeyValue::class)]
     public ?array $configurationKey = null;
+
+    /** @var list<string>|null */
     public ?array $unknownKey = null;
 }

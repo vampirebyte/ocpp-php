@@ -10,6 +10,9 @@ class ClearTariffs extends Call
 {
     /**
      * List of tariff Ids to clear. When absent clears all tariffs at _evseId_.
+     *
+     *
+     * @var list<string>|null
      */
     public ?array $tariffIds = null;
 

@@ -18,6 +18,8 @@ class PublishFirmwareStatusNotification extends Call
 
     /**
      * Required if status is Published. Can be multiple URI’s, if the Local Controller supports e.g. HTTP, HTTPS, and FTP.
+     *
+     * @var list<string>|null
      */
     public ?array $location = null;
 

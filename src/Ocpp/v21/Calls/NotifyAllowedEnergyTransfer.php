@@ -15,6 +15,8 @@ class NotifyAllowedEnergyTransfer extends Call
 
     /**
      * Modes of energy transfer that are accepted by CSMS.
+     *
+     * @var list<string>
      */
     public array $allowedEnergyTransfer;
 

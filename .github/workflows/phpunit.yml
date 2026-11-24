@@ -41,3 +41,6 @@ jobs:
 
       - name: Check type coverage of the generated classes
         run: composer test:type-coverage
+
+      - name: Run PHPStan on the generated classes
+        run: composer test:types

@@ -24,6 +24,8 @@ class GetMonitoringReport extends Call
 
     /**
      * This field contains criteria for components for which a monitoring report is requested
+     *
+     * @var list<string>|null
      */
     public ?array $monitoringCriteria = null;
 }

@@ -18,6 +18,8 @@ class CertificateStatusRequestInfoType extends Datatype
 
     /**
      * URL(s) of _source_.
+     *
+     * @var list<string>
      */
     public array $urls;
 

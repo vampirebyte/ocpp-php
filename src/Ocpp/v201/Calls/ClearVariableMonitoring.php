@@ -13,6 +13,8 @@ class ClearVariableMonitoring extends Call
 
     /**
      * List of the monitors to be cleared, identified by there Id.
+     *
+     * @var list<int>
      */
     public array $id;
 }

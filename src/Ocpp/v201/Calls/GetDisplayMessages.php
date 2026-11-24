@@ -15,6 +15,9 @@ class GetDisplayMessages extends Call
 
     /**
      * If provided the Charging Station shall return Display Messages of the given ids. This field SHALL NOT contain more ids than set in <<configkey-number-of-display-messages,NumberOfDisplayMessages.maxLimit>>
+     *
+     *
+     * @var list<int>|null
      */
     public ?array $id = null;
 

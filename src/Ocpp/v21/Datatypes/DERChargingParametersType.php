@@ -11,6 +11,8 @@ class DERChargingParametersType extends Datatype
     /**
      * DER control functions supported by EV. +
      *     *ISO 15118-20*: DER_BPT_AC_CPDReqEnergyTransferModeType:DERControlFunctions (bitmap)
+     *
+     * @var list<string>|null
      */
     public ?array $evSupportedDERControl = null;
 
@@ -241,6 +243,8 @@ class DERChargingParametersType extends Datatype
     /**
      * Type of islanding detection method. Only mandatory when islanding detection is required at the site, as set in the ISO 15118 Service Details configuration. +
      *        *ISO 15118-20*: DER_BPT_AC_CPDReqEnergyTransferModeType: EVIslandingDetectionMethod
+     *
+     * @var list<string>|null
      */
     public ?array $evIslandingDetectionMethod = null;
 

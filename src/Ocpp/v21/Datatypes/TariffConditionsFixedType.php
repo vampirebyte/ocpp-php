@@ -26,6 +26,8 @@ class TariffConditionsFixedType extends Datatype
 
     /**
      * Day(s) of the week this is tariff applies.
+     *
+     * @var list<string>|null
      */
     public ?array $dayOfWeek = null;
 
