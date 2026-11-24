@@ -9,10 +9,10 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\UpdateType;
 
 class SendLocalList extends Call
 {
-	public int $listVersion;
+    public int $listVersion;
 
-	/** @var list<AuthorizationData>|null */
-	#[ListOf(AuthorizationData::class)]
-	public ?array $localAuthorizationList = null;
-	public string|UpdateType $updateType;
+    /** @var list<AuthorizationData>|null */
+    #[ListOf(AuthorizationData::class)]
+    public ?array $localAuthorizationList = null;
+    public string|UpdateType $updateType;
 }

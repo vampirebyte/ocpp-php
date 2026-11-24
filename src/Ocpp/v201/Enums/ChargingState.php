@@ -7,9 +7,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ChargingState: string
 {
-	case Charging = 'Charging';
-	case EVConnected = 'EVConnected';
-	case SuspendedEV = 'SuspendedEV';
-	case SuspendedEVSE = 'SuspendedEVSE';
-	case Idle = 'Idle';
+    case Charging = 'Charging';
+    case EVConnected = 'EVConnected';
+    case SuspendedEV = 'SuspendedEV';
+    case SuspendedEVSE = 'SuspendedEVSE';
+    case Idle = 'Idle';
 }

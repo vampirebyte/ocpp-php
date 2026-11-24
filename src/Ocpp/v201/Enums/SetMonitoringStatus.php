@@ -7,10 +7,10 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum SetMonitoringStatus: string
 {
-	case Accepted = 'Accepted';
-	case UnknownComponent = 'UnknownComponent';
-	case UnknownVariable = 'UnknownVariable';
-	case UnsupportedMonitorType = 'UnsupportedMonitorType';
-	case Rejected = 'Rejected';
-	case Duplicate = 'Duplicate';
+    case Accepted = 'Accepted';
+    case UnknownComponent = 'UnknownComponent';
+    case UnknownVariable = 'UnknownVariable';
+    case UnsupportedMonitorType = 'UnsupportedMonitorType';
+    case Rejected = 'Rejected';
+    case Duplicate = 'Duplicate';
 }

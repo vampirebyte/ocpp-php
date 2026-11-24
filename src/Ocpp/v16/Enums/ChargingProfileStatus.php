@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ChargingProfileStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case NotSupported = 'NotSupported';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case NotSupported = 'NotSupported';
 }

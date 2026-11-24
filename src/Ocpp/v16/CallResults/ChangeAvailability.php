@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\AvailabilityStatus;
 
 class ChangeAvailability extends CallResult
 {
-	public string|AvailabilityStatus $status;
+    public string|AvailabilityStatus $status;
 }

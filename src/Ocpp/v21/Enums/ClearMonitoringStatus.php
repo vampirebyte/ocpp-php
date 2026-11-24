@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ClearMonitoringStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case NotFound = 'NotFound';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case NotFound = 'NotFound';
 }

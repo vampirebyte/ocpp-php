@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum UnlockStatus: string
 {
-	case Unlocked = 'Unlocked';
-	case UnlockFailed = 'UnlockFailed';
-	case OngoingAuthorizedTransaction = 'OngoingAuthorizedTransaction';
-	case UnknownConnector = 'UnknownConnector';
+    case Unlocked = 'Unlocked';
+    case UnlockFailed = 'UnlockFailed';
+    case OngoingAuthorizedTransaction = 'OngoingAuthorizedTransaction';
+    case UnknownConnector = 'UnknownConnector';
 }

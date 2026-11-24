@@ -8,8 +8,8 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\GetCompositeScheduleStatus;
 
 class GetCompositeSchedule extends CallResult
 {
-	public string|GetCompositeScheduleStatus $status;
-	public ?int $connectorId = null;
-	public ?string $scheduleStart = null;
-	public ?ChargingSchedule $chargingSchedule = null;
+    public string|GetCompositeScheduleStatus $status;
+    public ?int $connectorId = null;
+    public ?string $scheduleStart = null;
+    public ?ChargingSchedule $chargingSchedule = null;
 }

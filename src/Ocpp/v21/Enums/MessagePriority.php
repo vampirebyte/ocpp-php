@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum MessagePriority: string
 {
-	case AlwaysFront = 'AlwaysFront';
-	case InFront = 'InFront';
-	case NormalCycle = 'NormalCycle';
+    case AlwaysFront = 'AlwaysFront';
+    case InFront = 'InFront';
+    case NormalCycle = 'NormalCycle';
 }

@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum DERControlStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case NotSupported = 'NotSupported';
-	case NotFound = 'NotFound';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case NotSupported = 'NotSupported';
+    case NotFound = 'NotFound';
 }

@@ -6,5 +6,5 @@ use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class Authorize extends Call
 {
-	public string $idTag;
+    public string $idTag;
 }

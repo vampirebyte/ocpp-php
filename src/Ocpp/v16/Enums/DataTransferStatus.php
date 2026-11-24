@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum DataTransferStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case UnknownMessageId = 'UnknownMessageId';
-	case UnknownVendorId = 'UnknownVendorId';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case UnknownMessageId = 'UnknownMessageId';
+    case UnknownVendorId = 'UnknownVendorId';
 }

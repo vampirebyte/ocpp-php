@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\ConfigurationStatus;
 
 class ChangeConfiguration extends CallResult
 {
-	public string|ConfigurationStatus $status;
+    public string|ConfigurationStatus $status;
 }

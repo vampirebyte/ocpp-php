@@ -7,6 +7,6 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\FirmwareStatus;
 
 class SignedFirmwareStatusNotification extends Call
 {
-	public string|FirmwareStatus $status;
-	public ?int $requestId = null;
+    public string|FirmwareStatus $status;
+    public ?int $requestId = null;
 }

@@ -6,5 +6,5 @@ use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class CancelReservation extends Call
 {
-	public int $reservationId;
+    public int $reservationId;
 }

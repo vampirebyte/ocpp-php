@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\ResetStatus;
 
 class Reset extends CallResult
 {
-	public string|ResetStatus $status;
+    public string|ResetStatus $status;
 }

@@ -6,7 +6,7 @@ use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class KeyValue extends Datatype
 {
-	public string $key;
-	public bool $readonly;
-	public ?string $value = null;
+    public string $key;
+    public bool $readonly;
+    public ?string $value = null;
 }

@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\DiagnosticsStatus;
 
 class DiagnosticsStatusNotification extends Call
 {
-	public string|DiagnosticsStatus $status;
+    public string|DiagnosticsStatus $status;
 }

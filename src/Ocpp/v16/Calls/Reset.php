@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\ResetType;
 
 class Reset extends Call
 {
-	public string|ResetType $type;
+    public string|ResetType $type;
 }

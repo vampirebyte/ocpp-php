@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum DeleteCertificateStatus: string
 {
-	case Accepted = 'Accepted';
-	case Failed = 'Failed';
-	case NotFound = 'NotFound';
+    case Accepted = 'Accepted';
+    case Failed = 'Failed';
+    case NotFound = 'NotFound';
 }

@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum EvseKind: string
 {
-	case AC = 'AC';
-	case DC = 'DC';
+    case AC = 'AC';
+    case DC = 'DC';
 }

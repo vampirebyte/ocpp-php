@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\UnlockStatus;
 
 class UnlockConnector extends CallResult
 {
-	public string|UnlockStatus $status;
+    public string|UnlockStatus $status;
 }

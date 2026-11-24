@@ -10,25 +10,25 @@ use SolutionForest\OcppPhp\Ocpp\v21\Enums\BatterySwapEvent;
 
 class BatterySwap extends Call
 {
-	/** @var list<BatteryDataType> */
-	#[ListOf(BatteryDataType::class)]
-	public array $batteryData;
+    /** @var list<BatteryDataType> */
+    #[ListOf(BatteryDataType::class)]
+    public array $batteryData;
 
-	/**
-	 * Battery in/out
-	 */
-	public string|BatterySwapEvent $eventType;
+    /**
+     * Battery in/out
+     */
+    public string|BatterySwapEvent $eventType;
 
-	/**
-	 * Contains a case insensitive identifier to use for the authorization and the type of authorization to support multiple forms of identifiers.
-	 */
-	public IdTokenType $idToken;
+    /**
+     * Contains a case insensitive identifier to use for the authorization and the type of authorization to support multiple forms of identifiers.
+     */
+    public IdTokenType $idToken;
 
-	/**
-	 * RequestId to correlate BatteryIn/Out events and optional RequestBatterySwapRequest.
-	 */
-	public int $requestId;
+    /**
+     * RequestId to correlate BatteryIn/Out events and optional RequestBatterySwapRequest.
+     */
+    public int $requestId;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

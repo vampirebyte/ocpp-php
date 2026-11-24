@@ -7,14 +7,14 @@ use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class TariffEnergyType extends Datatype
 {
-	/** @var list<TariffEnergyPriceType> */
-	#[ListOf(TariffEnergyPriceType::class)]
-	public array $prices;
+    /** @var list<TariffEnergyPriceType> */
+    #[ListOf(TariffEnergyPriceType::class)]
+    public array $prices;
 
-	/** @var list<TaxRateType>|null */
-	#[ListOf(TaxRateType::class)]
-	public ?array $taxRates = null;
+    /** @var list<TaxRateType>|null */
+    #[ListOf(TaxRateType::class)]
+    public ?array $taxRates = null;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ReportBase: string
 {
-	case ConfigurationInventory = 'ConfigurationInventory';
-	case FullInventory = 'FullInventory';
-	case SummaryInventory = 'SummaryInventory';
+    case ConfigurationInventory = 'ConfigurationInventory';
+    case FullInventory = 'FullInventory';
+    case SummaryInventory = 'SummaryInventory';
 }

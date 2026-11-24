@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ClearMessageStatus: string
 {
-	case Accepted = 'Accepted';
-	case Unknown = 'Unknown';
-	case Rejected = 'Rejected';
+    case Accepted = 'Accepted';
+    case Unknown = 'Unknown';
+    case Rejected = 'Rejected';
 }

@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Datatypes\CertificateHashDataType;
 
 class DeleteCertificate extends Call
 {
-	public CertificateHashDataType $certificateHashData;
+    public CertificateHashDataType $certificateHashData;
 }

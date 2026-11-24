@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum OCPPTransport: string
 {
-	case JSON = 'JSON';
-	case SOAP = 'SOAP';
+    case JSON = 'JSON';
+    case SOAP = 'SOAP';
 }

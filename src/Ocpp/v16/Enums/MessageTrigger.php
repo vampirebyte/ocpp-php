@@ -7,12 +7,12 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum MessageTrigger: string
 {
-	case BootNotification = 'BootNotification';
-	case LogStatusNotification = 'LogStatusNotification';
-	case FirmwareStatusNotification = 'FirmwareStatusNotification';
-	case Heartbeat = 'Heartbeat';
-	case MeterValues = 'MeterValues';
-	case SignChargePointCertificate = 'SignChargePointCertificate';
-	case StatusNotification = 'StatusNotification';
-	case DiagnosticsStatusNotification = 'DiagnosticsStatusNotification';
+    case BootNotification = 'BootNotification';
+    case LogStatusNotification = 'LogStatusNotification';
+    case FirmwareStatusNotification = 'FirmwareStatusNotification';
+    case Heartbeat = 'Heartbeat';
+    case MeterValues = 'MeterValues';
+    case SignChargePointCertificate = 'SignChargePointCertificate';
+    case StatusNotification = 'StatusNotification';
+    case DiagnosticsStatusNotification = 'DiagnosticsStatusNotification';
 }

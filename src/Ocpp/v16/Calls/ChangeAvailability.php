@@ -7,6 +7,6 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\AvailabilityType;
 
 class ChangeAvailability extends Call
 {
-	public int $connectorId;
-	public string|AvailabilityType $type;
+    public int $connectorId;
+    public string|AvailabilityType $type;
 }

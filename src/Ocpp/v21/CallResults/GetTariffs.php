@@ -10,20 +10,20 @@ use SolutionForest\OcppPhp\Ocpp\v21\Enums\TariffGetStatus;
 
 class GetTariffs extends CallResult
 {
-	/**
-	 * Status of operation
-	 */
-	public string|TariffGetStatus $status;
+    /**
+     * Status of operation
+     */
+    public string|TariffGetStatus $status;
 
-	/**
-	 * Element providing more information about the status.
-	 */
-	public ?StatusInfoType $statusInfo = null;
+    /**
+     * Element providing more information about the status.
+     */
+    public ?StatusInfoType $statusInfo = null;
 
-	/** @var list<TariffAssignmentType>|null */
-	#[ListOf(TariffAssignmentType::class)]
-	public ?array $tariffAssignments = null;
+    /** @var list<TariffAssignmentType>|null */
+    #[ListOf(TariffAssignmentType::class)]
+    public ?array $tariffAssignments = null;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

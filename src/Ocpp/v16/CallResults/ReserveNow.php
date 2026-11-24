@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\ReservationStatus;
 
 class ReserveNow extends CallResult
 {
-	public string|ReservationStatus $status;
+    public string|ReservationStatus $status;
 }

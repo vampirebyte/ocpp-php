@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\CancelReservationStatus;
 
 class CancelReservation extends CallResult
 {
-	public string|CancelReservationStatus $status;
+    public string|CancelReservationStatus $status;
 }

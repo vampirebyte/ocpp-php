@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum NotifyEVChargingNeedsStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case Processing = 'Processing';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case Processing = 'Processing';
 }

@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum CertificateSigningUse: string
 {
-	case ChargingStationCertificate = 'ChargingStationCertificate';
-	case V2GCertificate = 'V2GCertificate';
-	case V2G20Certificate = 'V2G20Certificate';
+    case ChargingStationCertificate = 'ChargingStationCertificate';
+    case V2GCertificate = 'V2GCertificate';
+    case V2G20Certificate = 'V2G20Certificate';
 }

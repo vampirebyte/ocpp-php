@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum CostKind: string
 {
-	case CarbonDioxideEmission = 'CarbonDioxideEmission';
-	case RelativePricePercentage = 'RelativePricePercentage';
-	case RenewableGenerationPercentage = 'RenewableGenerationPercentage';
+    case CarbonDioxideEmission = 'CarbonDioxideEmission';
+    case RelativePricePercentage = 'RelativePricePercentage';
+    case RenewableGenerationPercentage = 'RenewableGenerationPercentage';
 }

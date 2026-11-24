@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ResetStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
 }

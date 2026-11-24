@@ -7,6 +7,6 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\CertificateUse;
 
 class InstallCertificate extends Call
 {
-	public string|CertificateUse $certificateType;
-	public string $certificate;
+    public string|CertificateUse $certificateType;
+    public string $certificate;
 }

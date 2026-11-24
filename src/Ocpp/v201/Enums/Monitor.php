@@ -7,9 +7,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum Monitor: string
 {
-	case UpperThreshold = 'UpperThreshold';
-	case LowerThreshold = 'LowerThreshold';
-	case Delta = 'Delta';
-	case Periodic = 'Periodic';
-	case PeriodicClockAligned = 'PeriodicClockAligned';
+    case UpperThreshold = 'UpperThreshold';
+    case LowerThreshold = 'LowerThreshold';
+    case Delta = 'Delta';
+    case Periodic = 'Periodic';
+    case PeriodicClockAligned = 'PeriodicClockAligned';
 }

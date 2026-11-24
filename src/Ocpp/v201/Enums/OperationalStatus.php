@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum OperationalStatus: string
 {
-	case Inoperative = 'Inoperative';
-	case Operative = 'Operative';
+    case Inoperative = 'Inoperative';
+    case Operative = 'Operative';
 }

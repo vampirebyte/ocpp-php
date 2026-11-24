@@ -7,9 +7,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum GetVariableStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case UnknownComponent = 'UnknownComponent';
-	case UnknownVariable = 'UnknownVariable';
-	case NotSupportedAttributeType = 'NotSupportedAttributeType';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case UnknownComponent = 'UnknownComponent';
+    case UnknownVariable = 'UnknownVariable';
+    case NotSupportedAttributeType = 'NotSupportedAttributeType';
 }

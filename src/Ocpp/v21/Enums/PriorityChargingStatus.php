@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum PriorityChargingStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case NoProfile = 'NoProfile';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case NoProfile = 'NoProfile';
 }

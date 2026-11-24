@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\UpdateStatus;
 
 class SendLocalList extends CallResult
 {
-	public string|UpdateStatus $status;
+    public string|UpdateStatus $status;
 }

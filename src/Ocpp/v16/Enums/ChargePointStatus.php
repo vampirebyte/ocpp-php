@@ -7,13 +7,13 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ChargePointStatus: string
 {
-	case Available = 'Available';
-	case Preparing = 'Preparing';
-	case Charging = 'Charging';
-	case SuspendedEVSE = 'SuspendedEVSE';
-	case SuspendedEV = 'SuspendedEV';
-	case Finishing = 'Finishing';
-	case Reserved = 'Reserved';
-	case Unavailable = 'Unavailable';
-	case Faulted = 'Faulted';
+    case Available = 'Available';
+    case Preparing = 'Preparing';
+    case Charging = 'Charging';
+    case SuspendedEVSE = 'SuspendedEVSE';
+    case SuspendedEV = 'SuspendedEV';
+    case Finishing = 'Finishing';
+    case Reserved = 'Reserved';
+    case Unavailable = 'Unavailable';
+    case Faulted = 'Faulted';
 }

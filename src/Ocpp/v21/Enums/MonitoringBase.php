@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum MonitoringBase: string
 {
-	case All = 'All';
-	case FactoryDefault = 'FactoryDefault';
-	case HardWiredOnly = 'HardWiredOnly';
+    case All = 'All';
+    case FactoryDefault = 'FactoryDefault';
+    case HardWiredOnly = 'HardWiredOnly';
 }

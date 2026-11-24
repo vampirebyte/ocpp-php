@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\RemoteStartStopStatus;
 
 class RemoteStartTransaction extends CallResult
 {
-	public string|RemoteStartStopStatus $status;
+    public string|RemoteStartStopStatus $status;
 }

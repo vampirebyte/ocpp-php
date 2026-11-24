@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum EventTrigger: string
 {
-	case Alerting = 'Alerting';
-	case Delta = 'Delta';
-	case Periodic = 'Periodic';
+    case Alerting = 'Alerting';
+    case Delta = 'Delta';
+    case Periodic = 'Periodic';
 }

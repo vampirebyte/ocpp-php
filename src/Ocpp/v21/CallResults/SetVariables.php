@@ -8,10 +8,10 @@ use SolutionForest\OcppPhp\Ocpp\v21\Datatypes\SetVariableResultType;
 
 class SetVariables extends CallResult
 {
-	/** @var list<SetVariableResultType> */
-	#[ListOf(SetVariableResultType::class)]
-	public array $setVariableResult;
+    /** @var list<SetVariableResultType> */
+    #[ListOf(SetVariableResultType::class)]
+    public array $setVariableResult;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

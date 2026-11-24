@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ChargingLimitSource: string
 {
-	case EMS = 'EMS';
-	case Other = 'Other';
-	case SO = 'SO';
-	case CSO = 'CSO';
+    case EMS = 'EMS';
+    case Other = 'Other';
+    case SO = 'SO';
+    case CSO = 'CSO';
 }

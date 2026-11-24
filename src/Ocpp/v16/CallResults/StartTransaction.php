@@ -7,6 +7,6 @@ use SolutionForest\OcppPhp\Ocpp\v16\Datatypes\IdTagInfo;
 
 class StartTransaction extends CallResult
 {
-	public IdTagInfo $idTagInfo;
-	public int $transactionId;
+    public IdTagInfo $idTagInfo;
+    public int $transactionId;
 }

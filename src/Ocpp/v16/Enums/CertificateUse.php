@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum CertificateUse: string
 {
-	case CentralSystemRootCertificate = 'CentralSystemRootCertificate';
-	case ManufacturerRootCertificate = 'ManufacturerRootCertificate';
+    case CentralSystemRootCertificate = 'CentralSystemRootCertificate';
+    case ManufacturerRootCertificate = 'ManufacturerRootCertificate';
 }

@@ -7,7 +7,7 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\RegistrationStatus;
 
 class BootNotification extends CallResult
 {
-	public string|RegistrationStatus $status;
-	public string $currentTime;
-	public int $interval;
+    public string|RegistrationStatus $status;
+    public string $currentTime;
+    public int $interval;
 }

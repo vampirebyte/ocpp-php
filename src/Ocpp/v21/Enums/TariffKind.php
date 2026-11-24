@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum TariffKind: string
 {
-	case DefaultTariff = 'DefaultTariff';
-	case DriverTariff = 'DriverTariff';
+    case DefaultTariff = 'DefaultTariff';
+    case DriverTariff = 'DriverTariff';
 }

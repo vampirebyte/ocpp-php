@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum Mutability: string
 {
-	case ReadOnly = 'ReadOnly';
-	case WriteOnly = 'WriteOnly';
-	case ReadWrite = 'ReadWrite';
+    case ReadOnly = 'ReadOnly';
+    case WriteOnly = 'WriteOnly';
+    case ReadWrite = 'ReadWrite';
 }

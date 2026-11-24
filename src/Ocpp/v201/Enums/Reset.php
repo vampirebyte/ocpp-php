@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum Reset: string
 {
-	case Immediate = 'Immediate';
-	case OnIdle = 'OnIdle';
+    case Immediate = 'Immediate';
+    case OnIdle = 'OnIdle';
 }

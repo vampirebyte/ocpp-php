@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ResetType: string
 {
-	case Hard = 'Hard';
-	case Soft = 'Soft';
+    case Hard = 'Hard';
+    case Soft = 'Soft';
 }

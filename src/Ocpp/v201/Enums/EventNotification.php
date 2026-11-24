@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum EventNotification: string
 {
-	case HardWiredNotification = 'HardWiredNotification';
-	case HardWiredMonitor = 'HardWiredMonitor';
-	case PreconfiguredMonitor = 'PreconfiguredMonitor';
-	case CustomMonitor = 'CustomMonitor';
+    case HardWiredNotification = 'HardWiredNotification';
+    case HardWiredMonitor = 'HardWiredMonitor';
+    case PreconfiguredMonitor = 'PreconfiguredMonitor';
+    case CustomMonitor = 'CustomMonitor';
 }

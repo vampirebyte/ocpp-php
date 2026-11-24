@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum Update: string
 {
-	case Differential = 'Differential';
-	case Full = 'Full';
+    case Differential = 'Differential';
+    case Full = 'Full';
 }

@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum CustomerInformationStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case Invalid = 'Invalid';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case Invalid = 'Invalid';
 }

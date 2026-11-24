@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\GenericStatus;
 
 class SignCertificate extends CallResult
 {
-	public string|GenericStatus $status;
+    public string|GenericStatus $status;
 }

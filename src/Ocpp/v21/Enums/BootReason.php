@@ -7,13 +7,13 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum BootReason: string
 {
-	case ApplicationReset = 'ApplicationReset';
-	case FirmwareUpdate = 'FirmwareUpdate';
-	case LocalReset = 'LocalReset';
-	case PowerUp = 'PowerUp';
-	case RemoteReset = 'RemoteReset';
-	case ScheduledReset = 'ScheduledReset';
-	case Triggered = 'Triggered';
-	case Unknown = 'Unknown';
-	case Watchdog = 'Watchdog';
+    case ApplicationReset = 'ApplicationReset';
+    case FirmwareUpdate = 'FirmwareUpdate';
+    case LocalReset = 'LocalReset';
+    case PowerUp = 'PowerUp';
+    case RemoteReset = 'RemoteReset';
+    case ScheduledReset = 'ScheduledReset';
+    case Triggered = 'Triggered';
+    case Unknown = 'Unknown';
+    case Watchdog = 'Watchdog';
 }

@@ -9,18 +9,18 @@ use SolutionForest\OcppPhp\Ocpp\v21\Enums\GenericStatus;
 
 class GetCompositeSchedule extends CallResult
 {
-	/**
-	 * The Charging Station will indicate if it was
-	 * able to process the request
-	 */
-	public string|GenericStatus $status;
+    /**
+     * The Charging Station will indicate if it was
+     * able to process the request
+     */
+    public string|GenericStatus $status;
 
-	/**
-	 * Element providing more information about the status.
-	 */
-	public ?StatusInfoType $statusInfo = null;
-	public ?CompositeScheduleType $schedule = null;
+    /**
+     * Element providing more information about the status.
+     */
+    public ?StatusInfoType $statusInfo = null;
+    public ?CompositeScheduleType $schedule = null;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

@@ -8,8 +8,8 @@ use SolutionForest\OcppPhp\Ocpp\v16\Datatypes\KeyValue;
 
 class GetConfiguration extends CallResult
 {
-	/** @var list<KeyValue>|null */
-	#[ListOf(KeyValue::class)]
-	public ?array $configurationKey = null;
-	public ?array $unknownKey = null;
+    /** @var list<KeyValue>|null */
+    #[ListOf(KeyValue::class)]
+    public ?array $configurationKey = null;
+    public ?array $unknownKey = null;
 }

@@ -8,16 +8,16 @@ use SolutionForest\OcppPhp\Ocpp\v21\Enums\DERControlStatus;
 
 class GetDERControl extends CallResult
 {
-	/**
-	 * Result of operation.
-	 */
-	public string|DERControlStatus $status;
+    /**
+     * Result of operation.
+     */
+    public string|DERControlStatus $status;
 
-	/**
-	 * Element providing more information about the status.
-	 */
-	public ?StatusInfoType $statusInfo = null;
+    /**
+     * Element providing more information about the status.
+     */
+    public ?StatusInfoType $statusInfo = null;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

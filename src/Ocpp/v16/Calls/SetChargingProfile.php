@@ -7,6 +7,6 @@ use SolutionForest\OcppPhp\Ocpp\v16\Datatypes\ChargingProfile;
 
 class SetChargingProfile extends Call
 {
-	public int $connectorId;
-	public ChargingProfile $csChargingProfiles;
+    public int $connectorId;
+    public ChargingProfile $csChargingProfiles;
 }

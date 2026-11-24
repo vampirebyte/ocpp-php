@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum UnpublishFirmwareStatus: string
 {
-	case DownloadOngoing = 'DownloadOngoing';
-	case NoFirmware = 'NoFirmware';
-	case Unpublished = 'Unpublished';
+    case DownloadOngoing = 'DownloadOngoing';
+    case NoFirmware = 'NoFirmware';
+    case Unpublished = 'Unpublished';
 }

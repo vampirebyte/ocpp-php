@@ -6,6 +6,6 @@ use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class ChangeConfiguration extends Call
 {
-	public string $key;
-	public string $value;
+    public string $key;
+    public string $value;
 }

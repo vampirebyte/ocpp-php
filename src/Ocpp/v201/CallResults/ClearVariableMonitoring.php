@@ -8,10 +8,10 @@ use SolutionForest\OcppPhp\Ocpp\v201\Datatypes\ClearMonitoringResultType;
 
 class ClearVariableMonitoring extends CallResult
 {
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 
-	/** @var list<ClearMonitoringResultType> */
-	#[ListOf(ClearMonitoringResultType::class)]
-	public array $clearMonitoringResult;
+    /** @var list<ClearMonitoringResultType> */
+    #[ListOf(ClearMonitoringResultType::class)]
+    public array $clearMonitoringResult;
 }

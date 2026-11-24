@@ -8,36 +8,36 @@ use SolutionForest\OcppPhp\Ocpp\v201\Enums\Connector;
 
 class ReserveNow extends Call
 {
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 
-	/**
-	 * Id of reservation.
-	 */
-	public int $id;
+    /**
+     * Id of reservation.
+     */
+    public int $id;
 
-	/**
-	 * Date and time at which the reservation expires.
-	 */
-	public string $expiryDateTime;
+    /**
+     * Date and time at which the reservation expires.
+     */
+    public string $expiryDateTime;
 
-	/**
-	 * This field specifies the connector type.
-	 */
-	public null|string|Connector $connectorType = null;
+    /**
+     * This field specifies the connector type.
+     */
+    public null|string|Connector $connectorType = null;
 
-	/**
-	 * Contains a case insensitive identifier to use for the authorization and the type of authorization to support multiple forms of identifiers.
-	 */
-	public IdTokenType $idToken;
+    /**
+     * Contains a case insensitive identifier to use for the authorization and the type of authorization to support multiple forms of identifiers.
+     */
+    public IdTokenType $idToken;
 
-	/**
-	 * This contains ID of the evse to be reserved.
-	 */
-	public ?int $evseId = null;
+    /**
+     * This contains ID of the evse to be reserved.
+     */
+    public ?int $evseId = null;
 
-	/**
-	 * Contains a case insensitive identifier to use for the authorization and the type of authorization to support multiple forms of identifiers.
-	 */
-	public ?IdTokenType $groupIdToken = null;
+    /**
+     * Contains a case insensitive identifier to use for the authorization and the type of authorization to support multiple forms of identifiers.
+     */
+    public ?IdTokenType $groupIdToken = null;
 }

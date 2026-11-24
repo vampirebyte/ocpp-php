@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum CertificateAction: string
 {
-	case Install = 'Install';
-	case Update = 'Update';
+    case Install = 'Install';
+    case Update = 'Update';
 }

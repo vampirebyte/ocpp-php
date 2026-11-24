@@ -6,6 +6,6 @@ use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class AuthorizationData extends Datatype
 {
-	public string $idTag;
-	public ?IdTagInfo $idTagInfo = null;
+    public string $idTag;
+    public ?IdTagInfo $idTagInfo = null;
 }

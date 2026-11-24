@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum MobilityNeedsMode: string
 {
-	case EVCC = 'EVCC';
-	case EVCCSECC = 'EVCC_SECC';
+    case EVCC = 'EVCC';
+    case EVCCSECC = 'EVCC_SECC';
 }

@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum GetChargingProfileStatus: string
 {
-	case Accepted = 'Accepted';
-	case NoProfiles = 'NoProfiles';
+    case Accepted = 'Accepted';
+    case NoProfiles = 'NoProfiles';
 }

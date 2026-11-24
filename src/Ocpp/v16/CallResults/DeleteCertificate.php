@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\DeleteCertificateStatus;
 
 class DeleteCertificate extends CallResult
 {
-	public string|DeleteCertificateStatus $status;
+    public string|DeleteCertificateStatus $status;
 }

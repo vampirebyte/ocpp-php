@@ -6,5 +6,5 @@ use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class RemoteStopTransaction extends Call
 {
-	public int $transactionId;
+    public int $transactionId;
 }

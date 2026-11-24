@@ -6,5 +6,5 @@ use SolutionForest\OcppPhp\Ocpp\Messages\CallResult;
 
 class Heartbeat extends CallResult
 {
-	public string $currentTime;
+    public string $currentTime;
 }

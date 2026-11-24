@@ -6,5 +6,5 @@ use SolutionForest\OcppPhp\Ocpp\Messages\CallResult;
 
 class GetLocalListVersion extends CallResult
 {
-	public int $listVersion;
+    public int $listVersion;
 }

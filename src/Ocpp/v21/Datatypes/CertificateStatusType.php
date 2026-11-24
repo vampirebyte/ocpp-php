@@ -8,19 +8,19 @@ use SolutionForest\OcppPhp\Ocpp\v21\Enums\CertificateStatusSource;
 
 class CertificateStatusType extends Datatype
 {
-	public CertificateHashDataType $certificateHashData;
+    public CertificateHashDataType $certificateHashData;
 
-	/**
-	 * Source of status: OCSP, CRL
-	 */
-	public string|CertificateStatusSource $source;
+    /**
+     * Source of status: OCSP, CRL
+     */
+    public string|CertificateStatusSource $source;
 
-	/**
-	 * Status of certificate: good, revoked or unknown.
-	 */
-	public string|CertificateStatus $status;
-	public string $nextUpdate;
+    /**
+     * Status of certificate: good, revoked or unknown.
+     */
+    public string|CertificateStatus $status;
+    public string $nextUpdate;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

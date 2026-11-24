@@ -7,11 +7,11 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum DisplayMessageStatus: string
 {
-	case Accepted = 'Accepted';
-	case NotSupportedMessageFormat = 'NotSupportedMessageFormat';
-	case Rejected = 'Rejected';
-	case NotSupportedPriority = 'NotSupportedPriority';
-	case NotSupportedState = 'NotSupportedState';
-	case UnknownTransaction = 'UnknownTransaction';
-	case LanguageNotSupported = 'LanguageNotSupported';
+    case Accepted = 'Accepted';
+    case NotSupportedMessageFormat = 'NotSupportedMessageFormat';
+    case Rejected = 'Rejected';
+    case NotSupportedPriority = 'NotSupportedPriority';
+    case NotSupportedState = 'NotSupportedState';
+    case UnknownTransaction = 'UnknownTransaction';
+    case LanguageNotSupported = 'LanguageNotSupported';
 }

@@ -6,16 +6,16 @@ use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class AdditionalInfoType extends Datatype
 {
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 
-	/**
-	 * This field specifies the additional IdToken.
-	 */
-	public string $additionalIdToken;
+    /**
+     * This field specifies the additional IdToken.
+     */
+    public string $additionalIdToken;
 
-	/**
-	 * This defines the type of the additionalIdToken. This is a custom type, so the implementation needs to be agreed upon by all involved parties.
-	 */
-	public string $type;
+    /**
+     * This defines the type of the additionalIdToken. This is a custom type, so the implementation needs to be agreed upon by all involved parties.
+     */
+    public string $type;
 }

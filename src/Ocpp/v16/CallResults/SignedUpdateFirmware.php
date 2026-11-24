@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\UpdateFirmwareStatus;
 
 class SignedUpdateFirmware extends CallResult
 {
-	public string|UpdateFirmwareStatus $status;
+    public string|UpdateFirmwareStatus $status;
 }

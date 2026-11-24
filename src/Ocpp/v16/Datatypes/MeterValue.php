@@ -7,9 +7,9 @@ use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class MeterValue extends Datatype
 {
-	public string $timestamp;
+    public string $timestamp;
 
-	/** @var list<SampledValue> */
-	#[ListOf(SampledValue::class)]
-	public array $sampledValue;
+    /** @var list<SampledValue> */
+    #[ListOf(SampledValue::class)]
+    public array $sampledValue;
 }

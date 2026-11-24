@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ControlMode: string
 {
-	case ScheduledControl = 'ScheduledControl';
-	case DynamicControl = 'DynamicControl';
+    case ScheduledControl = 'ScheduledControl';
+    case DynamicControl = 'DynamicControl';
 }

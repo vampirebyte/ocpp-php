@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum RecurrencyKind: string
 {
-	case Daily = 'Daily';
-	case Weekly = 'Weekly';
+    case Daily = 'Daily';
+    case Weekly = 'Weekly';
 }

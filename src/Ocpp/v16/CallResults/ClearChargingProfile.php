@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\ClearChargingProfileStatus;
 
 class ClearChargingProfile extends CallResult
 {
-	public string|ClearChargingProfileStatus $status;
+    public string|ClearChargingProfileStatus $status;
 }

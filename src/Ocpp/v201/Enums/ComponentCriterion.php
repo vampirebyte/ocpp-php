@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ComponentCriterion: string
 {
-	case Active = 'Active';
-	case Available = 'Available';
-	case Enabled = 'Enabled';
-	case Problem = 'Problem';
+    case Active = 'Active';
+    case Available = 'Available';
+    case Enabled = 'Enabled';
+    case Problem = 'Problem';
 }

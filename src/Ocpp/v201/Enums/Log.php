@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum Log: string
 {
-	case DiagnosticsLog = 'DiagnosticsLog';
-	case SecurityLog = 'SecurityLog';
+    case DiagnosticsLog = 'DiagnosticsLog';
+    case SecurityLog = 'SecurityLog';
 }

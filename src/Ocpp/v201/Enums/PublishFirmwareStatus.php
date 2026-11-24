@@ -7,14 +7,14 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum PublishFirmwareStatus: string
 {
-	case Idle = 'Idle';
-	case DownloadScheduled = 'DownloadScheduled';
-	case Downloading = 'Downloading';
-	case Downloaded = 'Downloaded';
-	case Published = 'Published';
-	case DownloadFailed = 'DownloadFailed';
-	case DownloadPaused = 'DownloadPaused';
-	case InvalidChecksum = 'InvalidChecksum';
-	case ChecksumVerified = 'ChecksumVerified';
-	case PublishFailed = 'PublishFailed';
+    case Idle = 'Idle';
+    case DownloadScheduled = 'DownloadScheduled';
+    case Downloading = 'Downloading';
+    case Downloaded = 'Downloaded';
+    case Published = 'Published';
+    case DownloadFailed = 'DownloadFailed';
+    case DownloadPaused = 'DownloadPaused';
+    case InvalidChecksum = 'InvalidChecksum';
+    case ChecksumVerified = 'ChecksumVerified';
+    case PublishFailed = 'PublishFailed';
 }

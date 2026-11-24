@@ -7,9 +7,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum Location: string
 {
-	case Cable = 'Cable';
-	case EV = 'EV';
-	case Inlet = 'Inlet';
-	case Outlet = 'Outlet';
-	case Body = 'Body';
+    case Cable = 'Cable';
+    case EV = 'EV';
+    case Inlet = 'Inlet';
+    case Outlet = 'Outlet';
+    case Body = 'Body';
 }

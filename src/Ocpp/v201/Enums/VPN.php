@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum VPN: string
 {
-	case IKEv2 = 'IKEv2';
-	case IPSec = 'IPSec';
-	case L2TP = 'L2TP';
-	case PPTP = 'PPTP';
+    case IKEv2 = 'IKEv2';
+    case IPSec = 'IPSec';
+    case L2TP = 'L2TP';
+    case PPTP = 'PPTP';
 }

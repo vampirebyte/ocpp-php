@@ -7,10 +7,10 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum MessageState: string
 {
-	case Charging = 'Charging';
-	case Faulted = 'Faulted';
-	case Idle = 'Idle';
-	case Unavailable = 'Unavailable';
-	case Suspended = 'Suspended';
-	case Discharging = 'Discharging';
+    case Charging = 'Charging';
+    case Faulted = 'Faulted';
+    case Idle = 'Idle';
+    case Unavailable = 'Unavailable';
+    case Suspended = 'Suspended';
+    case Discharging = 'Discharging';
 }

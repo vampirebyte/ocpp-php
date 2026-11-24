@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\ChargingProfileStatus;
 
 class SetChargingProfile extends CallResult
 {
-	public string|ChargingProfileStatus $status;
+    public string|ChargingProfileStatus $status;
 }

@@ -7,12 +7,12 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum OperationMode: string
 {
-	case Idle = 'Idle';
-	case ChargingOnly = 'ChargingOnly';
-	case CentralSetpoint = 'CentralSetpoint';
-	case ExternalSetpoint = 'ExternalSetpoint';
-	case ExternalLimits = 'ExternalLimits';
-	case CentralFrequency = 'CentralFrequency';
-	case LocalFrequency = 'LocalFrequency';
-	case LocalLoadBalancing = 'LocalLoadBalancing';
+    case Idle = 'Idle';
+    case ChargingOnly = 'ChargingOnly';
+    case CentralSetpoint = 'CentralSetpoint';
+    case ExternalSetpoint = 'ExternalSetpoint';
+    case ExternalLimits = 'ExternalLimits';
+    case CentralFrequency = 'CentralFrequency';
+    case LocalFrequency = 'LocalFrequency';
+    case LocalLoadBalancing = 'LocalLoadBalancing';
 }

@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum BatterySwapEvent: string
 {
-	case BatteryIn = 'BatteryIn';
-	case BatteryOut = 'BatteryOut';
-	case BatteryOutTimeout = 'BatteryOutTimeout';
+    case BatteryIn = 'BatteryIn';
+    case BatteryOut = 'BatteryOut';
+    case BatteryOutTimeout = 'BatteryOutTimeout';
 }

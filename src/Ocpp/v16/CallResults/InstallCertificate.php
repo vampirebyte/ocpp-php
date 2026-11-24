@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\InstallCertificateStatus;
 
 class InstallCertificate extends CallResult
 {
-	public string|InstallCertificateStatus $status;
+    public string|InstallCertificateStatus $status;
 }

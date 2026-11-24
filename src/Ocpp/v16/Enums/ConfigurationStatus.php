@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ConfigurationStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case RebootRequired = 'RebootRequired';
-	case NotSupported = 'NotSupported';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case RebootRequired = 'RebootRequired';
+    case NotSupported = 'NotSupported';
 }

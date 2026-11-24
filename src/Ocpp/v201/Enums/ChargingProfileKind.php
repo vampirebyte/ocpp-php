@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ChargingProfileKind: string
 {
-	case Absolute = 'Absolute';
-	case Recurring = 'Recurring';
-	case Relative = 'Relative';
+    case Absolute = 'Absolute';
+    case Recurring = 'Recurring';
+    case Relative = 'Relative';
 }

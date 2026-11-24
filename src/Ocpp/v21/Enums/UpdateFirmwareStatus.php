@@ -7,9 +7,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum UpdateFirmwareStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case AcceptedCanceled = 'AcceptedCanceled';
-	case InvalidCertificate = 'InvalidCertificate';
-	case RevokedCertificate = 'RevokedCertificate';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case AcceptedCanceled = 'AcceptedCanceled';
+    case InvalidCertificate = 'InvalidCertificate';
+    case RevokedCertificate = 'RevokedCertificate';
 }

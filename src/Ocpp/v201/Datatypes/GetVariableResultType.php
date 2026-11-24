@@ -8,38 +8,38 @@ use SolutionForest\OcppPhp\Ocpp\v201\Enums\GetVariableStatus;
 
 class GetVariableResultType extends Datatype
 {
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 
-	/**
-	 * Element providing more information about the status.
-	 */
-	public ?StatusInfoType $attributeStatusInfo = null;
+    /**
+     * Element providing more information about the status.
+     */
+    public ?StatusInfoType $attributeStatusInfo = null;
 
-	/**
-	 * Result status of getting the variable.
-	 */
-	public string|GetVariableStatus $attributeStatus;
+    /**
+     * Result status of getting the variable.
+     */
+    public string|GetVariableStatus $attributeStatus;
 
-	/**
-	 * Attribute type for which value is requested. When absent, default Actual is assumed.
-	 */
-	public null|string|Attribute $attributeType = null;
+    /**
+     * Attribute type for which value is requested. When absent, default Actual is assumed.
+     */
+    public null|string|Attribute $attributeType = null;
 
-	/**
-	 * Value of requested attribute type of component-variable. This field can only be empty when the given status is NOT accepted.
-	 *
-	 * The Configuration Variable <<configkey-reporting-value-size,ReportingValueSize>> can be used to limit GetVariableResult.attributeValue, VariableAttribute.value and EventData.actualValue. The max size of these values will always remain equal.
-	 */
-	public ?string $attributeValue = null;
+    /**
+     * Value of requested attribute type of component-variable. This field can only be empty when the given status is NOT accepted.
+     *
+     * The Configuration Variable <<configkey-reporting-value-size,ReportingValueSize>> can be used to limit GetVariableResult.attributeValue, VariableAttribute.value and EventData.actualValue. The max size of these values will always remain equal.
+     */
+    public ?string $attributeValue = null;
 
-	/**
-	 * A physical or logical component
-	 */
-	public ComponentType $component;
+    /**
+     * A physical or logical component
+     */
+    public ComponentType $component;
 
-	/**
-	 * Reference key to a component-variable.
-	 */
-	public VariableType $variable;
+    /**
+     * Reference key to a component-variable.
+     */
+    public VariableType $variable;
 }

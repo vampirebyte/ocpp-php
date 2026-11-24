@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum Attribute: string
 {
-	case Actual = 'Actual';
-	case Target = 'Target';
-	case MinSet = 'MinSet';
-	case MaxSet = 'MaxSet';
+    case Actual = 'Actual';
+    case Target = 'Target';
+    case MinSet = 'MinSet';
+    case MaxSet = 'MaxSet';
 }

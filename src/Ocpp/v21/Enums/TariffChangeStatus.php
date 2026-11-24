@@ -7,10 +7,10 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum TariffChangeStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case TooManyElements = 'TooManyElements';
-	case ConditionNotSupported = 'ConditionNotSupported';
-	case TxNotFound = 'TxNotFound';
-	case NoCurrencyChange = 'NoCurrencyChange';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case TooManyElements = 'TooManyElements';
+    case ConditionNotSupported = 'ConditionNotSupported';
+    case TxNotFound = 'TxNotFound';
+    case NoCurrencyChange = 'NoCurrencyChange';
 }

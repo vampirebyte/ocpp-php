@@ -7,11 +7,11 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum AuthorizeCertificateStatus: string
 {
-	case Accepted = 'Accepted';
-	case SignatureError = 'SignatureError';
-	case CertificateExpired = 'CertificateExpired';
-	case CertificateRevoked = 'CertificateRevoked';
-	case NoCertificateAvailable = 'NoCertificateAvailable';
-	case CertChainError = 'CertChainError';
-	case ContractCancelled = 'ContractCancelled';
+    case Accepted = 'Accepted';
+    case SignatureError = 'SignatureError';
+    case CertificateExpired = 'CertificateExpired';
+    case CertificateRevoked = 'CertificateRevoked';
+    case NoCertificateAvailable = 'NoCertificateAvailable';
+    case CertChainError = 'CertChainError';
+    case ContractCancelled = 'ContractCancelled';
 }

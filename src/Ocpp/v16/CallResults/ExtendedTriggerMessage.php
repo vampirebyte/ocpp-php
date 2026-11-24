@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\TriggerMessageStatus;
 
 class ExtendedTriggerMessage extends CallResult
 {
-	public string|TriggerMessageStatus $status;
+    public string|TriggerMessageStatus $status;
 }

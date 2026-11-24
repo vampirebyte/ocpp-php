@@ -6,5 +6,5 @@ use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class SignCertificate extends Call
 {
-	public string $csr;
+    public string $csr;
 }

@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum MonitoringCriterion: string
 {
-	case ThresholdMonitoring = 'ThresholdMonitoring';
-	case DeltaMonitoring = 'DeltaMonitoring';
-	case PeriodicMonitoring = 'PeriodicMonitoring';
+    case ThresholdMonitoring = 'ThresholdMonitoring';
+    case DeltaMonitoring = 'DeltaMonitoring';
+    case PeriodicMonitoring = 'PeriodicMonitoring';
 }

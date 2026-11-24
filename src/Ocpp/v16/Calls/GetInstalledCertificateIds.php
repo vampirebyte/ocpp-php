@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\CertificateUse;
 
 class GetInstalledCertificateIds extends Call
 {
-	public string|CertificateUse $certificateType;
+    public string|CertificateUse $certificateType;
 }

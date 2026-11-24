@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum Iso15118EVCertificateStatus: string
 {
-	case Accepted = 'Accepted';
-	case Failed = 'Failed';
+    case Accepted = 'Accepted';
+    case Failed = 'Failed';
 }

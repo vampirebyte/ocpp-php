@@ -7,9 +7,9 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum ReservationStatus: string
 {
-	case Accepted = 'Accepted';
-	case Faulted = 'Faulted';
-	case Occupied = 'Occupied';
-	case Rejected = 'Rejected';
-	case Unavailable = 'Unavailable';
+    case Accepted = 'Accepted';
+    case Faulted = 'Faulted';
+    case Occupied = 'Occupied';
+    case Rejected = 'Rejected';
+    case Unavailable = 'Unavailable';
 }

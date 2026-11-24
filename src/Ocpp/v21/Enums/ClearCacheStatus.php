@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ClearCacheStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
 }

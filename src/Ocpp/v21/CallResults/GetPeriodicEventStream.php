@@ -8,10 +8,10 @@ use SolutionForest\OcppPhp\Ocpp\v21\Datatypes\ConstantStreamDataType;
 
 class GetPeriodicEventStream extends CallResult
 {
-	/** @var list<ConstantStreamDataType>|null */
-	#[ListOf(ConstantStreamDataType::class)]
-	public ?array $constantStreamData = null;
+    /** @var list<ConstantStreamDataType>|null */
+    #[ListOf(ConstantStreamDataType::class)]
+    public ?array $constantStreamData = null;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

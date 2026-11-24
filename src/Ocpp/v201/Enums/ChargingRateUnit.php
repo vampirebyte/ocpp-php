@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum ChargingRateUnit: string
 {
-	case W = 'W';
-	case A = 'A';
+    case W = 'W';
+    case A = 'A';
 }

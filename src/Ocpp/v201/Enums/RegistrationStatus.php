@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum RegistrationStatus: string
 {
-	case Accepted = 'Accepted';
-	case Pending = 'Pending';
-	case Rejected = 'Rejected';
+    case Accepted = 'Accepted';
+    case Pending = 'Pending';
+    case Rejected = 'Rejected';
 }

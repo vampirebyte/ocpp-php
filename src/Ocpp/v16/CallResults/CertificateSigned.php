@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\CertificateSignedStatus;
 
 class CertificateSigned extends CallResult
 {
-	public string|CertificateSignedStatus $status;
+    public string|CertificateSignedStatus $status;
 }

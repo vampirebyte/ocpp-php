@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Datatypes\IdTagInfo;
 
 class Authorize extends CallResult
 {
-	public IdTagInfo $idTagInfo;
+    public IdTagInfo $idTagInfo;
 }

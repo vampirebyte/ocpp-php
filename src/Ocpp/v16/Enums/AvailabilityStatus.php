@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum AvailabilityStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case Scheduled = 'Scheduled';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case Scheduled = 'Scheduled';
 }

@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum InstallCertificateStatus: string
 {
-	case Accepted = 'Accepted';
-	case Failed = 'Failed';
-	case Rejected = 'Rejected';
+    case Accepted = 'Accepted';
+    case Failed = 'Failed';
+    case Rejected = 'Rejected';
 }

@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum SendLocalListStatus: string
 {
-	case Accepted = 'Accepted';
-	case Failed = 'Failed';
-	case VersionMismatch = 'VersionMismatch';
+    case Accepted = 'Accepted';
+    case Failed = 'Failed';
+    case VersionMismatch = 'VersionMismatch';
 }

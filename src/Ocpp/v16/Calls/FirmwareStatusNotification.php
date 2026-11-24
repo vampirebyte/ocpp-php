@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Enums\FirmwareStatus;
 
 class FirmwareStatusNotification extends Call
 {
-	public string|FirmwareStatus $status;
+    public string|FirmwareStatus $status;
 }

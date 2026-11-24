@@ -7,8 +7,8 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum APNAuthentication: string
 {
-	case CHAP = 'CHAP';
-	case NONE = 'NONE';
-	case PAP = 'PAP';
-	case AUTO = 'AUTO';
+    case CHAP = 'CHAP';
+    case NONE = 'NONE';
+    case PAP = 'PAP';
+    case AUTO = 'AUTO';
 }

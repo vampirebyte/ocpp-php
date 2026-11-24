@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum ReservationUpdateStatus: string
 {
-	case Expired = 'Expired';
-	case Removed = 'Removed';
-	case NoTransaction = 'NoTransaction';
+    case Expired = 'Expired';
+    case Removed = 'Removed';
+    case NoTransaction = 'NoTransaction';
 }

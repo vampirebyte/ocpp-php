@@ -6,7 +6,7 @@ use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 
 class SecurityEventNotification extends Call
 {
-	public string $type;
-	public string $timestamp;
-	public ?string $techInfo = null;
+    public string $type;
+    public string $timestamp;
+    public ?string $techInfo = null;
 }

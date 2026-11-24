@@ -8,16 +8,16 @@ use SolutionForest\OcppPhp\Ocpp\v21\Enums\GenericStatus;
 
 class RequestBatterySwap extends CallResult
 {
-	/**
-	 * Accepted or rejected the request.
-	 */
-	public string|GenericStatus $status;
+    /**
+     * Accepted or rejected the request.
+     */
+    public string|GenericStatus $status;
 
-	/**
-	 * Element providing more information about the status.
-	 */
-	public ?StatusInfoType $statusInfo = null;
+    /**
+     * Element providing more information about the status.
+     */
+    public ?StatusInfoType $statusInfo = null;
 
-	/** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
-	public ?object $customData = null;
+    /** This class does not get 'AdditionalProperties = false' in the schema generation, so it can be extended with arbitrary JSON properties to allow adding custom data. */
+    public ?object $customData = null;
 }

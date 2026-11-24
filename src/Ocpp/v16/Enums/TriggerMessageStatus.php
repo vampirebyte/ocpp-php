@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum TriggerMessageStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case NotImplemented = 'NotImplemented';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case NotImplemented = 'NotImplemented';
 }

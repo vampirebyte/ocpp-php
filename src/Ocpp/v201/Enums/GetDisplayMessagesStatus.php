@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum GetDisplayMessagesStatus: string
 {
-	case Accepted = 'Accepted';
-	case Unknown = 'Unknown';
+    case Accepted = 'Accepted';
+    case Unknown = 'Unknown';
 }

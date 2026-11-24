@@ -7,12 +7,12 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum Data: string
 {
-	case string = 'string';
-	case decimal = 'decimal';
-	case integer = 'integer';
-	case dateTime = 'dateTime';
-	case boolean = 'boolean';
-	case OptionList = 'OptionList';
-	case SequenceList = 'SequenceList';
-	case MemberList = 'MemberList';
+    case string = 'string';
+    case decimal = 'decimal';
+    case integer = 'integer';
+    case dateTime = 'dateTime';
+    case boolean = 'boolean';
+    case OptionList = 'OptionList';
+    case SequenceList = 'SequenceList';
+    case MemberList = 'MemberList';
 }

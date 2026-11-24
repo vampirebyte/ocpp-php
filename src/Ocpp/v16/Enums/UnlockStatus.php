@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum UnlockStatus: string
 {
-	case Unlocked = 'Unlocked';
-	case UnlockFailed = 'UnlockFailed';
-	case NotSupported = 'NotSupported';
+    case Unlocked = 'Unlocked';
+    case UnlockFailed = 'UnlockFailed';
+    case NotSupported = 'NotSupported';
 }

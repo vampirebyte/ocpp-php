@@ -7,6 +7,6 @@ namespace SolutionForest\OcppPhp\Ocpp\v21\Enums;
  */
 enum CertificateStatusSource: string
 {
-	case CRL = 'CRL';
-	case OCSP = 'OCSP';
+    case CRL = 'CRL';
+    case OCSP = 'OCSP';
 }

@@ -7,11 +7,11 @@ namespace SolutionForest\OcppPhp\Ocpp\v16\Enums;
  */
 enum UploadLogStatus: string
 {
-	case BadMessage = 'BadMessage';
-	case Idle = 'Idle';
-	case NotSupportedOperation = 'NotSupportedOperation';
-	case PermissionDenied = 'PermissionDenied';
-	case Uploaded = 'Uploaded';
-	case UploadFailure = 'UploadFailure';
-	case Uploading = 'Uploading';
+    case BadMessage = 'BadMessage';
+    case Idle = 'Idle';
+    case NotSupportedOperation = 'NotSupportedOperation';
+    case PermissionDenied = 'PermissionDenied';
+    case Uploaded = 'Uploaded';
+    case UploadFailure = 'UploadFailure';
+    case Uploading = 'Uploading';
 }

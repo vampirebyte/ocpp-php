@@ -7,5 +7,5 @@ use SolutionForest\OcppPhp\Ocpp\v16\Datatypes\IdTagInfo;
 
 class StopTransaction extends CallResult
 {
-	public ?IdTagInfo $idTagInfo = null;
+    public ?IdTagInfo $idTagInfo = null;
 }

@@ -8,7 +8,7 @@ use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\EnumType;
 use Nette\PhpGenerator\InterfaceType;
 use Nette\PhpGenerator\PhpNamespace;
-use Nette\PhpGenerator\Printer;
+use Nette\PhpGenerator\PsrPrinter;
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
 use Nette\PhpGenerator\Literal;
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;
@@ -248,7 +248,7 @@ abstract class SchemaProcessor
         }
 
         $filename = $class->getName();
-        $printer = new Printer;
+        $printer = new PsrPrinter;
         $printer->setTypeResolving(false);
         $class = $printer->printClass($class, $namespace);
         $namespace = $printer->printNamespace($namespace);

@@ -6,7 +6,7 @@ use SolutionForest\OcppPhp\Ocpp\Datatype;
 
 class ChargingSchedulePeriod extends Datatype
 {
-	public int $startPeriod;
-	public float $limit;
-	public ?int $numberPhases = null;
+    public int $startPeriod;
+    public float $limit;
+    public ?int $numberPhases = null;
 }

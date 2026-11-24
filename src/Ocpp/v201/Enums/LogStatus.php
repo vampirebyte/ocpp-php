@@ -7,7 +7,7 @@ namespace SolutionForest\OcppPhp\Ocpp\v201\Enums;
  */
 enum LogStatus: string
 {
-	case Accepted = 'Accepted';
-	case Rejected = 'Rejected';
-	case AcceptedCanceled = 'AcceptedCanceled';
+    case Accepted = 'Accepted';
+    case Rejected = 'Rejected';
+    case AcceptedCanceled = 'AcceptedCanceled';
 }
