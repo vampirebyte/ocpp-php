@@ -5,4 +5,15 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <!--
+        Pest type coverage (composer test:type-coverage) checks only the directories listed
+        here, so it covers the generated classes and not the hand-written package files.
+    -->
+    <source>
+        <include>
+            <directory>src/Ocpp/v16</directory>
+            <directory>src/Ocpp/v201</directory>
+            <directory>src/Ocpp/v21</directory>
+        </include>
+    </source>
 </phpunit>

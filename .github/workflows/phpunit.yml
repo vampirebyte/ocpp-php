@@ -38,3 +38,6 @@ jobs:
 
       - name: Run PHPUnit
         run: vendor/bin/phpunit
+
+      - name: Check type coverage of the generated classes
+        run: composer test:type-coverage

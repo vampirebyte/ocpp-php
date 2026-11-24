@@ -19,7 +19,9 @@
     },
     "require-dev": {
         "nette/php-generator": "^4.1",
-        "phpunit/phpunit": "^11"
+        "phpunit/phpunit": "^12.5",
+        "pestphp/pest": "^4.7",
+        "pestphp/pest-plugin-type-coverage": "^4.0"
     },
     "suggest": {
         "react/socket": "Required for running WebSocket examples",
@@ -27,5 +29,16 @@
     },
     "bin": [
         "bin/ocpp-php"
-    ]
+    ],
+    "scripts": {
+        "test:type-coverage": "pest --type-coverage --min=100"
+    },
+    "scripts-descriptions": {
+        "test:type-coverage": "Require 100% type coverage of the generated classes (see <source> in phpunit.xml.dist)."
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
