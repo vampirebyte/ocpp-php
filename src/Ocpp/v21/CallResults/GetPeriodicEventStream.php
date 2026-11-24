@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\CallResults;
 
 use SolutionForest\OcppPhp\Ocpp\Attributes\ListOf;

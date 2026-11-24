@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SolutionForest\OcppPhp\Ocpp\v21\Calls;
 
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;

@@ -7,6 +7,7 @@ require_once __DIR__ . "/../../vendor/autoload.php";
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\EnumType;
 use Nette\PhpGenerator\InterfaceType;
+use Nette\PhpGenerator\PhpFile;
 use Nette\PhpGenerator\PhpNamespace;
 use Nette\PhpGenerator\PsrPrinter;
 use SolutionForest\OcppPhp\Ocpp\Messages\Call;
@@ -248,10 +249,12 @@ abstract class SchemaProcessor
         }
 
         $filename = $class->getName();
+        $namespace->add($class);
+        $file = new PhpFile;
+        $file->setStrictTypes();
+        $file->addNamespace($namespace);
         $printer = new PsrPrinter;
         $printer->setTypeResolving(false);
-        $class = $printer->printClass($class, $namespace);
-        $namespace = $printer->printNamespace($namespace);
 
         echo "Creating {$filename} in {$subnamespace}\n";
 
@@ -260,7 +263,7 @@ abstract class SchemaProcessor
             mkdir($directory, 0777, true);
         }
 
-        file_put_contents("{$directory}/{$filename}.php", "<?php\n\n{$namespace}{$class}");
+        file_put_contents("{$directory}/{$filename}.php", $printer->printFile($file));
     }
 
     protected function getNameFromSchema(string $schemaPath): string
